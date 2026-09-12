@@ -1,0 +1,2221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#08000d">
+
+<title>Help Her Out</title>
+
+<style>
+:root{
+  --black:#050007;
+  --deep:#0d0014;
+  --panel:#16001f;
+  --panel2:#21002e;
+
+  --pink:#ff28bd;
+  --hotpink:#ff4bd2;
+  --purple:#9a49ff;
+  --lavender:#ed9cff;
+
+  --white:#fff;
+  --text:#fff8ff;
+  --muted:#c7afce;
+
+  --green:#63ffc7;
+  --yellow:#ffd166;
+  --red:#ff477e;
+
+  --border:rgba(255,65,210,.32);
+  --glow:0 0 12px rgba(255,40,190,.55),
+         0 0 32px rgba(155,73,255,.25);
+}
+
+*{
+  box-sizing:border-box;
+  -webkit-tap-highlight-color:transparent;
+}
+
+html,body{
+  margin:0;
+  min-height:100%;
+  background:var(--black);
+}
+
+body{
+  color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  background:
+    radial-gradient(circle at 50% -5%,rgba(255,40,190,.18),transparent 28%),
+    radial-gradient(circle at 100% 22%,rgba(155,73,255,.10),transparent 30%),
+    linear-gradient(180deg,#050007,#09000e 55%,#050007);
+  padding-bottom:90px;
+}
+
+button,input,select,textarea{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+.app{
+  width:min(100%,680px);
+  margin:auto;
+}
+
+.view{
+  display:none;
+  padding:16px;
+  animation:fade .22s ease;
+}
+
+.view.active{
+  display:block;
+}
+
+@keyframes fade{
+  from{opacity:0;transform:translateY(6px)}
+  to{opacity:1;transform:none}
+}
+
+/* HEADER */
+
+.header{
+  position:sticky;
+  top:0;
+  z-index:20;
+
+  background:rgba(7,0,11,.88);
+  backdrop-filter:blur(15px);
+  -webkit-backdrop-filter:blur(15px);
+
+  border-bottom:1px solid var(--border);
+  padding:12px 16px;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.mini-brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:900;
+}
+
+.mini-logo{
+  width:38px;
+  height:38px;
+}
+
+.mini-brand span span{
+  color:var(--hotpink);
+}
+
+.area-pill{
+  border:1px solid var(--border);
+  color:var(--muted);
+  border-radius:999px;
+  padding:7px 10px;
+  font-size:12px;
+  background:#120019;
+}
+
+/* HOME */
+
+.hero{
+  text-align:center;
+  padding:10px 0 22px;
+}
+
+.logo-wrap{
+  width:210px;
+  height:210px;
+  margin:8px auto 8px;
+  display:grid;
+  place-items:center;
+
+  border-radius:45px;
+
+  background:
+    radial-gradient(circle,rgba(255,33,184,.14),rgba(155,77,255,.05) 47%,transparent 72%);
+
+  border:1px solid rgba(255,90,220,.17);
+
+  box-shadow:
+    inset 0 0 35px rgba(255,33,184,.08),
+    0 0 48px rgba(255,33,184,.13);
+}
+
+.main-logo{
+  width:190px;
+  filter:
+    drop-shadow(0 0 10px rgba(255,40,200,.9))
+    drop-shadow(0 0 30px rgba(155,77,255,.4));
+  animation:pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse{
+  50%{
+    transform:scale(1.025);
+    filter:
+      drop-shadow(0 0 16px rgba(255,40,200,1))
+      drop-shadow(0 0 42px rgba(155,77,255,.65));
+  }
+}
+
+.hero h1{
+  font-size:44px;
+  margin:4px 0;
+  line-height:1;
+  letter-spacing:-1.6px;
+}
+
+.hero h1 span{
+  color:var(--hotpink);
+  text-shadow:0 0 20px rgba(255,40,190,.65);
+}
+
+.tagline{
+  color:#f4c9ef;
+  font-size:18px;
+  font-weight:650;
+  margin:14px 0 24px;
+}
+
+.ctas{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+
+/* BUTTONS */
+
+.btn{
+  width:100%;
+  border:none;
+  border-radius:14px;
+  padding:14px 16px;
+  color:white;
+  font-weight:850;
+}
+
+.primary{
+  background:linear-gradient(135deg,#ff34c8,#f30094 52%,#9941ff);
+  border:1px solid rgba(255,160,235,.35);
+  box-shadow:0 0 20px rgba(255,33,184,.35);
+}
+
+.secondary{
+  background:linear-gradient(135deg,rgba(255,40,190,.09),rgba(154,73,255,.14));
+  border:1px solid rgba(211,96,255,.5);
+}
+
+.small{
+  width:auto;
+  padding:10px 13px;
+  font-size:13px;
+}
+
+.danger{
+  background:rgba(255,71,126,.13);
+  color:#ff8dac;
+  border:1px solid rgba(255,71,126,.55);
+}
+
+.green{
+  background:rgba(99,255,199,.11);
+  color:var(--green);
+  border:1px solid rgba(99,255,199,.45);
+}
+
+/* STATS */
+
+.stats{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-top:18px;
+}
+
+.stat{
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:15px;
+  background:linear-gradient(145deg,rgba(33,0,46,.82),rgba(10,0,15,.95));
+}
+
+.stat b{
+  display:block;
+  font-size:27px;
+  color:#ff64d9;
+  text-shadow:0 0 12px rgba(255,33,184,.4);
+}
+
+.stat span{
+  color:var(--muted);
+  font-size:12px;
+}
+
+/* TITLES */
+
+.page-title{
+  margin:7px 0 4px;
+  font-size:27px;
+}
+
+.subtitle{
+  color:var(--muted);
+  margin:0 0 18px;
+}
+
+/* CARDS */
+
+.card{
+  background:linear-gradient(145deg,rgba(32,0,44,.9),rgba(10,0,15,.96));
+  border:1px solid var(--border);
+  border-radius:17px;
+  padding:15px;
+  margin-bottom:12px;
+
+  box-shadow:
+    0 7px 26px rgba(0,0,0,.32),
+    0 0 18px rgba(255,33,184,.07);
+}
+
+.card h3{
+  margin:0 0 8px;
+}
+
+.task-top{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+}
+
+.pay{
+  color:#ff66dc;
+  font-weight:950;
+  font-size:21px;
+}
+
+.meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  margin:9px 0;
+}
+
+.badge{
+  font-size:11px;
+  padding:5px 8px;
+  border-radius:999px;
+
+  background:rgba(255,33,184,.09);
+  border:1px solid rgba(255,67,207,.28);
+  color:#f3c5eb;
+}
+
+.verified{
+  color:var(--green);
+  border-color:rgba(99,255,199,.4);
+  background:rgba(99,255,199,.07);
+}
+
+.buddy{
+  color:#ffd1f4;
+  border-color:#d875ff;
+}
+
+.desc{
+  color:var(--muted);
+  line-height:1.45;
+  font-size:14px;
+}
+
+.task-actions{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+  margin-top:12px;
+}
+
+/* FILTERS */
+
+.filters{
+  display:flex;
+  gap:8px;
+  overflow-x:auto;
+  scrollbar-width:none;
+  margin:0 -2px 15px;
+}
+
+.filters::-webkit-scrollbar{
+  display:none;
+}
+
+.filter{
+  flex:0 0 auto;
+  border-radius:999px;
+  padding:9px 13px;
+
+  color:#eee;
+  background:#130019;
+  border:1px solid var(--border);
+}
+
+.filter.active{
+  background:linear-gradient(135deg,#ff35c8,#9744ff);
+  box-shadow:0 0 16px rgba(255,33,184,.32);
+}
+
+/* FORMS */
+
+.form-card{
+  border:1px solid var(--border);
+  background:linear-gradient(145deg,rgba(27,0,38,.9),rgba(9,0,14,.96));
+  border-radius:18px;
+  padding:16px;
+}
+
+.field{
+  margin-bottom:14px;
+}
+
+label{
+  display:block;
+  color:var(--lavender);
+  font-size:13px;
+  font-weight:750;
+  margin-bottom:7px;
+}
+
+input,
+select,
+textarea{
+  width:100%;
+  padding:12px;
+
+  background:#09000d;
+  border:1px solid rgba(255,57,204,.3);
+  color:white;
+
+  border-radius:11px;
+  outline:none;
+}
+
+textarea{
+  min-height:105px;
+  resize:vertical;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+  border-color:var(--hotpink);
+  box-shadow:0 0 17px rgba(255,33,184,.25);
+}
+
+.two{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+
+/* PHOTO UPLOAD */
+
+.photo-box{
+  border:2px dashed rgba(255,70,210,.38);
+  border-radius:14px;
+  padding:22px;
+  text-align:center;
+  color:var(--muted);
+  background:rgba(255,33,184,.03);
+}
+
+.photo-previews{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+  margin-top:10px;
+}
+
+.photo-previews img{
+  width:100%;
+  aspect-ratio:1;
+  object-fit:cover;
+  border-radius:10px;
+  border:1px solid var(--border);
+}
+
+/* SAFETY */
+
+.safety-card{
+  border-left:4px solid var(--hotpink);
+}
+
+.leave{
+  width:100%;
+  padding:17px;
+  margin-top:12px;
+
+  background:#370014;
+  color:#ff8cab;
+
+  border:2px solid #ff477e;
+  border-radius:14px;
+
+  font-size:16px;
+  font-weight:950;
+}
+
+/* PROFILE */
+
+.profile-head{
+  text-align:center;
+}
+
+.avatar{
+  width:96px;
+  height:96px;
+  border-radius:50%;
+  margin:10px auto;
+
+  display:grid;
+  place-items:center;
+
+  font-size:44px;
+
+  background:linear-gradient(145deg,#ff35c8,#8d42ff);
+  border:2px solid #ff78e2;
+  box-shadow:var(--glow);
+}
+
+.level{
+  display:inline-block;
+  margin-top:6px;
+  border-radius:999px;
+  padding:7px 12px;
+
+  color:#ffd0f5;
+  border:1px solid rgba(255,69,211,.4);
+  background:rgba(255,33,184,.08);
+}
+
+/* BOTTOM NAV */
+
+.nav{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  z-index:40;
+
+  background:rgba(7,0,11,.96);
+  backdrop-filter:blur(18px);
+
+  border-top:1px solid rgba(255,47,200,.32);
+  box-shadow:0 -10px 35px rgba(255,33,184,.10);
+}
+
+.nav-inner{
+  max-width:680px;
+  margin:auto;
+
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+}
+
+.nav button{
+  border:none;
+  background:none;
+  color:#9f8ca6;
+
+  padding:9px 4px calc(8px + env(safe-area-inset-bottom));
+  font-size:10px;
+}
+
+.nav button strong{
+  display:block;
+  font-size:20px;
+  margin-bottom:2px;
+}
+
+.nav button.active{
+  color:#ff50d5;
+  text-shadow:0 0 12px rgba(255,33,184,.7);
+}
+
+/* MODAL */
+
+.modal{
+  position:fixed;
+  inset:0;
+  display:none;
+  z-index:80;
+
+  background:rgba(0,0,0,.75);
+  backdrop-filter:blur(7px);
+
+  padding:15px;
+  align-items:flex-end;
+}
+
+.modal.open{
+  display:flex;
+}
+
+.sheet{
+  width:min(100%,680px);
+  max-height:88vh;
+  overflow:auto;
+  margin:auto;
+
+  background:linear-gradient(180deg,#190022,#07000b);
+
+  border:1px solid var(--border);
+  border-radius:23px 23px 15px 15px;
+
+  padding:17px;
+
+  box-shadow:0 -20px 60px rgba(255,33,184,.14);
+}
+
+.sheet-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.close{
+  background:none;
+  border:none;
+  color:white;
+  font-size:27px;
+}
+
+/* TOAST */
+
+.toast{
+  position:fixed;
+  bottom:96px;
+  left:50%;
+  transform:translateX(-50%) translateY(20px);
+
+  opacity:0;
+  transition:.2s;
+
+  padding:10px 15px;
+  border-radius:999px;
+
+  background:#190022;
+  border:1px solid var(--border);
+
+  z-index:100;
+}
+
+.toast.show{
+  opacity:1;
+  transform:translateX(-50%);
+}
+
+.note{
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.5;
+}
+
+.money{
+  color:var(--green);
+  font-weight:850;
+}
+
+hr{
+  border:0;
+  border-top:1px solid var(--border);
+  margin:16px 0;
+}
+
+@media(max-width:520px){
+  .ctas,
+  .two,
+  .task-actions{
+    grid-template-columns:1fr;
+  }
+
+  .hero h1{
+    font-size:39px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+
+  <div class="mini-brand">
+
+    <svg class="mini-logo" viewBox="0 0 200 220">
+      <path d="M100 10C57 10 36 44 36 80c0 45 64 120 64 120s64-75 64-120c0-36-21-70-64-70z"
+        fill="none" stroke="#ff35c8" stroke-width="10"/>
+
+      <circle cx="100" cy="78" r="46"
+        fill="#0b0010"
+        stroke="#a74cff"
+        stroke-width="4"/>
+
+      <path d="M68 82l32-28 32 28M76 78v38h48V78"
+        fill="none"
+        stroke="#fff"
+        stroke-width="7"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+    </svg>
+
+    <span>Help <span>Her</span> Out</span>
+
+  </div>
+
+  <div class="area-pill">KC Metro</div>
+
+</header>
+
+
+<div class="app">
+
+<!-- HOME -->
+
+<section id="home" class="view active">
+
+  <div class="hero">
+
+    <div class="logo-wrap">
+
+      <svg class="main-logo"
+           viewBox="0 0 220 240"
+           xmlns="http://www.w3.org/2000/svg">
+
+        <defs>
+
+          <linearGradient id="pinGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#ff55e6"/>
+            <stop offset="50%" stop-color="#ff22b8"/>
+            <stop offset="100%" stop-color="#984aff"/>
+          </linearGradient>
+
+          <linearGradient id="mapGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#ff46d8"/>
+            <stop offset="100%" stop-color="#8646ff"/>
+          </linearGradient>
+
+        </defs>
+
+        <!-- MAP -->
+
+        <g fill="none"
+           stroke="url(#mapGrad)"
+           stroke-width="4">
+
+          <path d="M25 170L55 145H165L195 170L180 205H40Z"/>
+          <path d="M55 145L70 205"/>
+          <path d="M105 145V205"/>
+          <path d="M155 145L140 205"/>
+          <path d="M35 170H185"/>
+          <path d="M42 188H178"/>
+
+        </g>
+
+        <!-- TARGET -->
+
+        <ellipse
+          cx="110"
+          cy="170"
+          rx="34"
+          ry="12"
+          fill="none"
+          stroke="#ff69e5"
+          stroke-width="4"/>
+
+        <!-- PIN -->
+
+        <path
+          d="M110 15C64 15 42 51 42 87C42 130 110 177 110 177S178 130 178 87C178 51 156 15 110 15Z"
+          fill="rgba(255,30,190,.10)"
+          stroke="url(#pinGrad)"
+          stroke-width="9"/>
+
+        <circle
+          cx="110"
+          cy="82"
+          r="48"
+          fill="#100016"
+          stroke="#ff75e7"
+          stroke-width="3"/>
+
+        <!-- HOUSE -->
+
+        <g fill="none"
+           stroke="#fff"
+           stroke-width="7"
+           stroke-linecap="round"
+           stroke-linejoin="round">
+
+          <path d="M72 82L110 49L148 82"/>
+          <path d="M82 77V118H138V77"/>
+          <path d="M132 56V69"/>
+
+          <rect x="95" y="86" width="12" height="12"/>
+          <rect x="113" y="86" width="12" height="12"/>
+          <rect x="95" y="104" width="12" height="12"/>
+          <rect x="113" y="104" width="12" height="12"/>
+
+        </g>
+
+      </svg>
+
+    </div>
+
+    <h1>Help <span>Her</span> Out</h1>
+
+    <div class="tagline">
+      She needs help. You need money.
+    </div>
+
+    <div class="ctas">
+
+      <button class="btn primary" onclick="go('post')">
+        I NEED HELP
+      </button>
+
+      <button class="btn secondary" onclick="go('work')">
+        I WANT TO EARN
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <div class="stats">
+
+    <div class="stat">
+      <b id="statOpen">0</b>
+      <span>Open Tasks</span>
+    </div>
+
+    <div class="stat">
+      <b>24</b>
+      <span>Taskers Nearby</span>
+    </div>
+
+    <div class="stat">
+      <b>18</b>
+      <span>ID Verified</span>
+    </div>
+
+    <div class="stat">
+      <b>146</b>
+      <span>Tasks Completed</span>
+    </div>
+
+  </div>
+
+
+  <div class="card" style="margin-top:18px">
+
+    <h3>👯 First Visit Buddy System</h3>
+
+    <p class="desc">
+      A first visit can include two paid taskers:
+      one Lead Tasker and one Safety Buddy.
+      Nobody is expected to provide safety labor for free.
+    </p>
+
+  </div>
+
+
+  <div class="card">
+
+    <h3>💵 Paid local opportunities</h3>
+
+    <p class="desc">
+      Moving, organizing, cleaning, errands, yard work,
+      furniture assembly, pet help, technology help,
+      household projects and everyday jobs.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- FIND WORK -->
+
+<section id="work" class="view">
+
+  <h2 class="page-title">Find Work</h2>
+
+  <p class="subtitle">
+    Find paid tasks nearby.
+  </p>
+
+  <div class="filters" id="filters"></div>
+
+  <div id="taskList"></div>
+
+</section>
+
+
+<!-- POST -->
+
+<section id="post" class="view">
+
+  <h2 class="page-title">Post a Task</h2>
+
+  <p class="subtitle">
+    Show taskers what you need and what you're paying.
+  </p>
+
+  <form id="postForm" class="form-card">
+
+    <div class="field">
+
+      <label>Task title</label>
+
+      <input id="title"
+             required
+             placeholder="Help move a dresser">
+
+    </div>
+
+
+    <div class="two">
+
+      <div class="field">
+
+        <label>Category</label>
+
+        <select id="category" required>
+
+          <option>Moving</option>
+          <option>Household</option>
+          <option>Cleaning</option>
+          <option>Outdoors</option>
+          <option>Errands</option>
+          <option>Tech</option>
+          <option>Pets</option>
+          <option>Other</option>
+
+        </select>
+
+      </div>
+
+
+      <div class="field">
+
+        <label>Payment</label>
+
+        <input id="payment"
+               required
+               type="number"
+               min="10"
+               placeholder="60">
+
+      </div>
+
+    </div>
+
+
+    <div class="two">
+
+      <div class="field">
+
+        <label>Estimated hours</label>
+
+        <input id="duration"
+               required
+               type="number"
+               step=".5"
+               min=".5"
+               placeholder="2">
+
+      </div>
+
+
+      <div class="field">
+
+        <label>Date</label>
+
+        <input id="date"
+               required
+               type="date">
+
+      </div>
+
+    </div>
+
+
+    <div class="field">
+
+      <label>General area</label>
+
+      <input id="area"
+             required
+             placeholder="Riverside, MO">
+
+    </div>
+
+
+    <div class="field">
+
+      <label>Description</label>
+
+      <textarea id="description"
+                required
+                placeholder="Describe exactly what needs to be done."></textarea>
+
+    </div>
+
+
+    <div class="field">
+
+      <label>Physical requirements</label>
+
+      <textarea id="physical"
+                placeholder="Example: lift about 40 lb, one flight of stairs."></textarea>
+
+    </div>
+
+
+    <div class="field">
+
+      <label>Task area photos</label>
+
+      <div class="photo-box"
+           onclick="document.getElementById('photos').click()">
+
+        📷<br>
+
+        <strong>Add task photos</strong>
+
+        <div class="note">
+          Show the room, furniture, boxes, yard or object involved.
+        </div>
+
+      </div>
+
+      <input id="photos"
+             type="file"
+             accept="image/*"
+             multiple
+             hidden>
+
+      <div id="photoPreview"
+           class="photo-previews"></div>
+
+      <p class="note">
+        Don't photograph IDs, financial information,
+        access codes, house numbers or private documents.
+      </p>
+
+    </div>
+
+
+    <div class="field">
+
+      <label>
+        <input id="buddyRequired"
+               type="checkbox"
+               style="width:auto">
+        Require a paid buddy for the first visit
+      </label>
+
+    </div>
+
+
+    <button class="btn primary">
+      POST PAID TASK
+    </button>
+
+  </form>
+
+</section>
+
+
+<!-- SAFETY -->
+
+<section id="safety" class="view">
+
+  <h2 class="page-title">Safety</h2>
+
+  <p class="subtitle">
+    Know who you're meeting before you arrive.
+  </p>
+
+
+  <div class="card safety-card">
+
+    <h3>✓ Identity verification</h3>
+
+    <p class="desc">
+      Production accounts can use third-party identity verification.
+      Other users see an ID VERIFIED badge, not copies of someone's ID.
+    </p>
+
+  </div>
+
+
+  <div class="card safety-card">
+
+    <h3>📷 Preview the task</h3>
+
+    <p class="desc">
+      Posters should upload pictures of the actual task area,
+      furniture, yard, boxes or project before a tasker accepts.
+    </p>
+
+  </div>
+
+
+  <div class="card safety-card">
+
+    <h3>👯 First Visit Buddy</h3>
+
+    <p class="desc">
+      Two taskers can attend a first appointment.
+      Both women are paid.
+    </p>
+
+  </div>
+
+
+  <div class="card safety-card">
+
+    <h3>📍 Address privacy</h3>
+
+    <p class="desc">
+      Public listings show a general area only.
+      Exact location should be shared only after matching.
+    </p>
+
+  </div>
+
+
+  <div class="card safety-card">
+
+    <h3>📲 Share appointment</h3>
+
+    <p class="desc">
+      Share the task, client name, general location,
+      buddy and expected completion time with a trusted contact.
+    </p>
+
+  </div>
+
+
+  <div class="card">
+
+    <h3>Appointment check-in</h3>
+
+    <button class="btn secondary"
+            onclick="toast('Heading there status saved')">
+      I'M HEADING THERE
+    </button>
+
+    <button class="btn secondary"
+            onclick="toast('Arrival saved')"
+            style="margin-top:8px">
+      I'VE ARRIVED
+    </button>
+
+    <button class="btn green"
+            onclick="toast('Buddy check-in saved')"
+            style="margin-top:8px">
+      BUDDY IS HERE
+    </button>
+
+    <button class="btn primary"
+            onclick="toast('Task started')"
+            style="margin-top:8px">
+      START TASK
+    </button>
+
+    <button class="btn green"
+            onclick="toast('Task completed')"
+            style="margin-top:8px">
+      TASK COMPLETE
+    </button>
+
+    <button class="leave"
+            onclick="leaveNow()">
+      LEAVE NOW
+    </button>
+
+  </div>
+
+
+  <div class="card">
+
+    <strong>If you are in immediate danger, call 911.</strong>
+
+    <p class="note">
+      No platform feature can guarantee safety or replace emergency services.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- PROFILE -->
+
+<section id="profile" class="view">
+
+  <div class="profile-head">
+
+    <div class="avatar">👩</div>
+
+    <h2 style="margin-bottom:3px">Your Profile</h2>
+
+    <div class="subtitle">
+      Kansas City Metro
+    </div>
+
+    <div class="level">
+      NEW TASKER
+    </div>
+
+  </div>
+
+
+  <div class="card">
+
+    <h3>Verification</h3>
+
+    <div class="meta">
+
+      <span class="badge verified">
+        ✓ EMAIL VERIFIED
+      </span>
+
+      <span class="badge verified">
+        ✓ PHONE VERIFIED
+      </span>
+
+      <span id="idBadge"
+            class="badge">
+        ID UNVERIFIED
+      </span>
+
+    </div>
+
+    <button class="btn secondary"
+            onclick="verifyID()">
+      SIMULATE ID VERIFICATION
+    </button>
+
+    <p class="note">
+      Prototype only. A real version should use a specialized
+      third-party verification provider.
+    </p>
+
+  </div>
+
+
+  <div class="card">
+
+    <h3>Tasker Levels</h3>
+
+    <p class="desc">
+      🌱 New Tasker<br>
+      💜 Community Vouched<br>
+      ⚡ Independent Tasker<br>
+      👑 Mentor Tasker
+    </p>
+
+  </div>
+
+
+  <div class="card">
+
+    <h3>Trusted Contact</h3>
+
+    <input id="trustedName"
+           placeholder="Contact name">
+
+    <input id="trustedPhone"
+           placeholder="Phone number"
+           style="margin-top:8px">
+
+    <button class="btn secondary"
+            style="margin-top:10px"
+            onclick="saveTrusted()">
+      SAVE TRUSTED CONTACT
+    </button>
+
+  </div>
+
+
+  <div class="card">
+
+    <h3>Earnings</h3>
+
+    <div class="stats">
+
+      <div class="stat">
+        <b>$185</b>
+        <span>This Week</span>
+      </div>
+
+      <div class="stat">
+        <b>$740</b>
+        <span>This Month</span>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <button class="btn danger"
+          onclick="resetDemo()">
+    RESET DEMO DATA
+  </button>
+
+</section>
+
+</div>
+
+
+<!-- TASK DETAIL -->
+
+<div id="taskModal"
+     class="modal"
+     onclick="modalBackground(event)">
+
+  <div class="sheet">
+
+    <div class="sheet-head">
+
+      <h2 id="modalTitle">
+        Task
+      </h2>
+
+      <button class="close"
+              onclick="closeTask()">
+        ×
+      </button>
+
+    </div>
+
+    <div id="modalContent"></div>
+
+  </div>
+
+</div>
+
+
+<!-- NAV -->
+
+<nav class="nav">
+
+  <div class="nav-inner">
+
+    <button data-view="home"
+            class="active"
+            onclick="go('home')">
+      <strong>⌂</strong>
+      Home
+    </button>
+
+    <button data-view="work"
+            onclick="go('work')">
+      <strong>💵</strong>
+      Find Work
+    </button>
+
+    <button data-view="post"
+            onclick="go('post')">
+      <strong>＋</strong>
+      Post
+    </button>
+
+    <button data-view="safety"
+            onclick="go('safety')">
+      <strong>🛡</strong>
+      Safety
+    </button>
+
+    <button data-view="profile"
+            onclick="go('profile')">
+      <strong>●</strong>
+      Profile
+    </button>
+
+  </div>
+
+</nav>
+
+
+<div id="toast"
+     class="toast">
+  Saved
+</div>
+
+
+<script>
+
+const KEY = "helpHerOutTasksV1";
+
+let photoData = [];
+
+let activeFilter = "All";
+
+
+const demoTasks = [
+
+{
+ id:"t1",
+ title:"Help move a dresser upstairs",
+ category:"Moving",
+ payment:65,
+ duration:1.5,
+ area:"Riverside",
+ distance:3.4,
+ date:"Saturday",
+ description:"Need help getting one solid wood dresser from my garage to a second-floor bedroom.",
+ physical:"Stairs and moderate lifting.",
+ verified:true,
+ completed:8,
+ buddy:true,
+ leadPay:50,
+ buddyPay:15
+},
+
+{
+ id:"t2",
+ title:"Organize garage shelves",
+ category:"Household",
+ payment:75,
+ duration:3,
+ area:"Parkville",
+ distance:5.1,
+ date:"Sunday",
+ description:"Help sort storage bins, label shelves and move lighter household items.",
+ physical:"Standing and light lifting.",
+ verified:true,
+ completed:12,
+ buddy:false
+},
+
+{
+ id:"t3",
+ title:"Yard cleanup",
+ category:"Outdoors",
+ payment:90,
+ duration:3,
+ area:"Gladstone",
+ distance:7.2,
+ date:"This Week",
+ description:"Leaves, branches and general backyard cleanup. Rake and bags provided.",
+ physical:"Outdoor work and bending.",
+ verified:true,
+ completed:5,
+ buddy:true,
+ leadPay:70,
+ buddyPay:20
+},
+
+{
+ id:"t4",
+ title:"Marketplace pickup",
+ category:"Errands",
+ payment:40,
+ duration:1,
+ area:"North Kansas City",
+ distance:8.4,
+ date:"Today",
+ description:"Help pick up a small shelving unit and bring it back to my apartment.",
+ physical:"Fits in SUV.",
+ verified:false,
+ completed:1,
+ buddy:true,
+ leadPay:30,
+ buddyPay:10
+},
+
+{
+ id:"t5",
+ title:"Set up Wi-Fi and printer",
+ category:"Tech",
+ payment:45,
+ duration:1.5,
+ area:"Liberty",
+ distance:11.2,
+ date:"This Week",
+ description:"New router is installed. Need help reconnecting television and wireless printer.",
+ physical:"No heavy lifting.",
+ verified:true,
+ completed:17,
+ buddy:false
+},
+
+{
+ id:"t6",
+ title:"Kitchen cabinet cleaning",
+ category:"Cleaning",
+ payment:80,
+ duration:3,
+ area:"Zona Rosa",
+ distance:4.3,
+ date:"Saturday",
+ description:"Deep clean inside and outside kitchen cabinets. Cleaning supplies provided.",
+ physical:"Some reaching and standing.",
+ verified:true,
+ completed:6,
+ buddy:false
+},
+
+{
+ id:"t7",
+ title:"Help pack apartment",
+ category:"Moving",
+ payment:110,
+ duration:4,
+ area:"Kansas City Northland",
+ distance:6.8,
+ date:"Sunday",
+ description:"Packing books, kitchen items and clothes into boxes before moving.",
+ physical:"Mostly light items.",
+ verified:true,
+ completed:10,
+ buddy:true,
+ leadPay:85,
+ buddyPay:25
+},
+
+{
+ id:"t8",
+ title:"Cat check-ins",
+ category:"Pets",
+ payment:35,
+ duration:1,
+ area:"Lake Waukomis",
+ distance:2.9,
+ date:"This Week",
+ description:"Feed two cats, refresh water and scoop litter while I am away.",
+ physical:"No special requirements.",
+ verified:true,
+ completed:21,
+ buddy:false
+}
+
+];
+
+
+function loadTasks(){
+
+ const saved = localStorage.getItem(KEY);
+
+ if(saved){
+   return JSON.parse(saved);
+ }
+
+ localStorage.setItem(KEY,JSON.stringify(demoTasks));
+
+ return [...demoTasks];
+}
+
+
+let tasks = loadTasks();
+
+
+const filterNames = [
+ "All",
+ "Near Me",
+ "Highest Pay",
+ "Today",
+ "Moving",
+ "Household",
+ "Cleaning",
+ "Outdoors",
+ "Errands",
+ "Tech",
+ "Pets"
+];
+
+
+function renderFilters(){
+
+ const wrap = document.getElementById("filters");
+
+ wrap.innerHTML = filterNames.map(x => `
+   <button
+     class="filter ${activeFilter===x ? "active" : ""}"
+     onclick="setFilter('${x}')">
+     ${x}
+   </button>
+ `).join("");
+
+}
+
+
+function setFilter(name){
+
+ activeFilter = name;
+
+ renderFilters();
+
+ renderTasks();
+
+}
+
+
+function renderTasks(){
+
+ let arr = [...tasks];
+
+ if(activeFilter==="Near Me"){
+   arr.sort((a,b)=>a.distance-b.distance);
+ }
+
+ else if(activeFilter==="Highest Pay"){
+   arr.sort((a,b)=>b.payment-a.payment);
+ }
+
+ else if(activeFilter==="Today"){
+   arr = arr.filter(x=>x.date==="Today");
+ }
+
+ else if(activeFilter!=="All"){
+   arr = arr.filter(x=>x.category===activeFilter);
+ }
+
+
+ document.getElementById("taskList").innerHTML =
+ arr.length
+ ?
+ arr.map(taskCard).join("")
+ :
+ `<div class="card"><div class="desc">No tasks found in this category yet.</div></div>`;
+
+ document.getElementById("statOpen").textContent = tasks.length;
+
+}
+
+
+function taskCard(t){
+
+ const hourly = Math.round(t.payment/t.duration);
+
+ return `
+
+ <div class="card">
+
+   <div class="task-top">
+
+     <div>
+
+       <h3>${safe(t.title)}</h3>
+
+       <div class="meta">
+
+         <span class="badge">
+           ${safe(t.category)}
+         </span>
+
+         <span class="badge">
+           📍 ${safe(t.area)}
+         </span>
+
+         <span class="badge">
+           ${t.distance} mi
+         </span>
+
+         ${
+           t.verified
+           ?
+           `<span class="badge verified">✓ ID VERIFIED</span>`
+           :
+           `<span class="badge">ID UNVERIFIED</span>`
+         }
+
+         ${
+           t.buddy
+           ?
+           `<span class="badge buddy">👯 BUDDY VISIT</span>`
+           :
+           ""
+         }
+
+       </div>
+
+     </div>
+
+     <div class="pay">
+       $${t.payment}
+     </div>
+
+   </div>
+
+   <div class="desc">
+     ${safe(t.description)}
+   </div>
+
+   <div class="meta">
+
+     <span class="badge">
+       ⏱ ${t.duration} hr
+     </span>
+
+     <span class="badge">
+       ≈ $${hourly}/hr
+     </span>
+
+     <span class="badge">
+       ${t.date}
+     </span>
+
+   </div>
+
+   <div class="task-actions">
+
+     <button class="btn primary"
+             onclick="openTask('${t.id}')">
+       VIEW TASK
+     </button>
+
+     ${
+       t.buddy
+       ?
+       `<button class="btn secondary"
+                onclick="buddyRequest('${t.id}')">
+          JOIN AS BUDDY
+        </button>`
+       :
+       `<button class="btn secondary"
+                onclick="requestTask('${t.id}')">
+          REQUEST TASK
+        </button>`
+     }
+
+   </div>
+
+ </div>
+
+ `;
+
+}
+
+
+function openTask(id){
+
+ const t = tasks.find(x=>x.id===id);
+
+ if(!t) return;
+
+
+ document.getElementById("modalTitle").textContent = t.title;
+
+
+ let buddyBlock = "";
+
+ if(t.buddy){
+
+   buddyBlock = `
+
+   <div class="card">
+
+     <h3>👯 First Visit Buddy</h3>
+
+     <div class="meta">
+       <span class="badge buddy">BUDDY REQUIRED</span>
+     </div>
+
+     <p class="desc">
+       Two paid taskers attend this first visit.
+     </p>
+
+     <hr>
+
+     <div style="display:flex;justify-content:space-between">
+       <span>Lead Tasker</span>
+       <span class="money">$${t.leadPay}</span>
+     </div>
+
+     <div style="display:flex;justify-content:space-between;margin-top:8px">
+       <span>Safety Buddy</span>
+       <span class="money">$${t.buddyPay}</span>
+     </div>
+
+   </div>
+
+   `;
+
+ }
+
+
+ document.getElementById("modalContent").innerHTML = `
+
+ <div class="pay" style="font-size:31px">
+   $${t.payment}
+ </div>
+
+ <div class="meta">
+
+   <span class="badge">
+     ${safe(t.category)}
+   </span>
+
+   <span class="badge">
+     📍 ${safe(t.area)}
+   </span>
+
+   <span class="badge">
+     ${t.distance} miles away
+   </span>
+
+ </div>
+
+
+ <div class="card">
+
+   <h3>Task Details</h3>
+
+   <p class="desc">
+     ${safe(t.description)}
+   </p>
+
+   <p class="desc">
+     <strong>Physical requirements:</strong><br>
+     ${safe(t.physical)}
+   </p>
+
+ </div>
+
+
+ <div class="card">
+
+   <h3>Client Profile</h3>
+
+   <div class="meta">
+
+     ${
+       t.verified
+       ?
+       `<span class="badge verified">✓ ID VERIFIED</span>`
+       :
+       `<span class="badge">ID UNVERIFIED</span>`
+     }
+
+     <span class="badge">
+       ${t.completed} completed tasks
+     </span>
+
+   </div>
+
+   <p class="desc">
+     96% of taskers would work with this client again.
+   </p>
+
+ </div>
+
+
+ ${buddyBlock}
+
+
+ <div class="card">
+
+   <h3>📷 Task Area Photos</h3>
+
+   <p class="desc">
+     Task posters can upload previews showing the room,
+     furniture, boxes, yard or other work area before you accept.
+   </p>
+
+ </div>
+
+
+ <button class="btn primary"
+         onclick="requestTask('${t.id}')">
+   REQUEST THIS TASK
+ </button>
+
+
+ ${
+   t.buddy
+   ?
+   `<button class="btn secondary"
+            style="margin-top:8px"
+            onclick="buddyRequest('${t.id}')">
+      JOIN AS SAFETY BUDDY
+    </button>`
+   :
+   ""
+ }
+
+
+ <button class="btn danger"
+         style="margin-top:8px"
+         onclick="toast('Report saved locally')">
+   REPORT TASK
+ </button>
+
+ `;
+
+
+ document.getElementById("taskModal").classList.add("open");
+
+}
+
+
+function closeTask(){
+
+ document.getElementById("taskModal").classList.remove("open");
+
+}
+
+
+function modalBackground(e){
+
+ if(e.target.id==="taskModal"){
+   closeTask();
+ }
+
+}
+
+
+function requestTask(id){
+
+ const t = tasks.find(x=>x.id===id);
+
+ if(!t) return;
+
+ toast(`Request sent for ${t.title}`);
+
+ closeTask();
+
+}
+
+
+function buddyRequest(id){
+
+ const t = tasks.find(x=>x.id===id);
+
+ if(!t) return;
+
+ toast(`Buddy request sent for ${t.title}`);
+
+ closeTask();
+
+}
+
+
+document.getElementById("photos").addEventListener("change",e=>{
+
+ const files = [...e.target.files].slice(0,5);
+
+ photoData = [];
+
+ const wrap = document.getElementById("photoPreview");
+
+ wrap.innerHTML = "";
+
+ files.forEach(file=>{
+
+   const reader = new FileReader();
+
+   reader.onload = ev=>{
+
+     photoData.push(ev.target.result);
+
+     const img = document.createElement("img");
+
+     img.src = ev.target.result;
+
+     wrap.appendChild(img);
+
+   };
+
+   reader.readAsDataURL(file);
+
+ });
+
+});
+
+
+document.getElementById("postForm").addEventListener("submit",e=>{
+
+ e.preventDefault();
+
+
+ const payment = Number(document.getElementById("payment").value);
+
+ const duration = Number(document.getElementById("duration").value);
+
+ const buddy = document.getElementById("buddyRequired").checked;
+
+
+ const buddyPay = buddy
+   ? Math.max(10,Math.round(payment*.22))
+   : 0;
+
+
+ const task = {
+
+   id:"user_"+Date.now(),
+
+   title:document.getElementById("title").value.trim(),
+
+   category:document.getElementById("category").value,
+
+   payment,
+
+   duration,
+
+   area:document.getElementById("area").value.trim(),
+
+   distance:2.5,
+
+   date:document.getElementById("date").value,
+
+   description:document.getElementById("description").value.trim(),
+
+   physical:document.getElementById("physical").value.trim() || "Not specified",
+
+   verified:true,
+
+   completed:4,
+
+   buddy,
+
+   leadPay:payment-buddyPay,
+
+   buddyPay,
+
+   photos:photoData
+
+ };
+
+
+ tasks.unshift(task);
+
+ localStorage.setItem(KEY,JSON.stringify(tasks));
+
+
+ e.target.reset();
+
+ document.getElementById("photoPreview").innerHTML="";
+
+ photoData=[];
+
+
+ renderTasks();
+
+ go("work");
+
+ toast("Paid task posted");
+
+});
+
+
+function go(name){
+
+ document.querySelectorAll(".view").forEach(v=>{
+   v.classList.remove("active");
+ });
+
+ document.getElementById(name).classList.add("active");
+
+
+ document.querySelectorAll(".nav button").forEach(b=>{
+   b.classList.toggle("active",b.dataset.view===name);
+ });
+
+
+ window.scrollTo({
+   top:0,
+   behavior:"smooth"
+ });
+
+}
+
+
+function verifyID(){
+
+ localStorage.setItem("hho_verified","yes");
+
+ showVerification();
+
+ toast("Prototype ID verification enabled");
+
+}
+
+
+function showVerification(){
+
+ const badge = document.getElementById("idBadge");
+
+ if(localStorage.getItem("hho_verified")==="yes"){
+
+   badge.textContent="✓ ID VERIFIED";
+
+   badge.classList.add("verified");
+
+ }
+
+}
+
+
+function saveTrusted(){
+
+ const name=document.getElementById("trustedName").value.trim();
+
+ const phone=document.getElementById("trustedPhone").value.trim();
+
+
+ localStorage.setItem(
+   "hho_trusted",
+   JSON.stringify({name,phone})
+ );
+
+
+ toast("Trusted contact saved");
+
+}
+
+
+function loadTrusted(){
+
+ const x=JSON.parse(
+   localStorage.getItem("hho_trusted") || "null"
+ );
+
+
+ if(x){
+
+   document.getElementById("trustedName").value=x.name || "";
+
+   document.getElementById("trustedPhone").value=x.phone || "";
+
+ }
+
+}
+
+
+function leaveNow(){
+
+ toast("Appointment ended. Move to a safe location.");
+
+ setTimeout(()=>{
+
+   if(confirm(
+     "Do you want to call emergency services?\n\nPress OK to open the phone dialer."
+   )){
+
+     location.href="tel:911";
+
+   }
+
+ },600);
+
+}
+
+
+function resetDemo(){
+
+ if(!confirm("Reset all Help Her Out prototype data?")){
+   return;
+ }
+
+
+ localStorage.removeItem(KEY);
+
+ localStorage.removeItem("hho_verified");
+
+ localStorage.removeItem("hho_trusted");
+
+
+ tasks=[...demoTasks];
+
+ localStorage.setItem(KEY,JSON.stringify(tasks));
+
+
+ renderTasks();
+
+ showVerification();
+
+ toast("Demo reset");
+
+}
+
+
+function safe(value=""){
+
+ return String(value).replace(
+   /[&<>"']/g,
+   c=>({
+     "&":"&amp;",
+     "<":"&lt;",
+     ">":"&gt;",
+     '"':"&quot;",
+     "'":"&#039;"
+   })[c]
+ );
+
+}
+
+
+let toastTimer;
+
+
+function toast(message){
+
+ const el=document.getElementById("toast");
+
+ el.textContent=message;
+
+ el.classList.add("show");
+
+
+ clearTimeout(toastTimer);
+
+
+ toastTimer=setTimeout(()=>{
+   el.classList.remove("show");
+ },2200);
+
+}
+
+
+function setDefaultDate(){
+
+ const d=new Date();
+
+ d.setDate(d.getDate()+2);
+
+ document.getElementById("date").value=
+   d.toISOString().slice(0,10);
+
+}
+
+
+renderFilters();
+
+renderTasks();
+
+showVerification();
+
+loadTrusted();
+
+setDefaultDate();
+
+</script>
+
+</body>
+</html>

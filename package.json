@@ -1,0 +1,13 @@
+{
+  "name": "help-her-out",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "devDependencies": {
+    "jsdom": "^25.0.1",
+    "vitest": "^5.0.1"
+  }
+}

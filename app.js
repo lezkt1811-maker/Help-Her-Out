@@ -145,6 +145,14 @@ const demoTasks = [
 ];
 
 
+// Demo tasks are a shared module-level template; always hand out fresh
+// per-object copies so marking one requested/completed can't leak back
+// into the template (and reappear after a "reset demo data").
+function cloneDemoTasks(){
+ return demoTasks.map(t=>({...t}));
+}
+
+
 function loadTasks(){
 
  const saved = localStorage.getItem(KEY);
@@ -153,9 +161,11 @@ function loadTasks(){
    return JSON.parse(saved);
  }
 
- localStorage.setItem(KEY,JSON.stringify(demoTasks));
+ const fresh = cloneDemoTasks();
 
- return [...demoTasks];
+ localStorage.setItem(KEY,JSON.stringify(fresh));
+
+ return fresh;
 }
 
 
@@ -204,10 +214,12 @@ function filterTasks(list,filterName){
 
 
 // Pure: mirrors the buddy-pay split used when a poster requires a first-visit buddy.
+// Clamped to `payment` so leadPay can never go negative for payments under the
+// form's $10 minimum.
 function computeBuddyPay(payment,buddyRequired){
 
  const buddyPay = buddyRequired
-   ? Math.max(10,Math.round(payment*.22))
+   ? Math.min(payment,Math.max(10,Math.round(payment*.22)))
    : 0;
 
  return {
@@ -215,6 +227,41 @@ function computeBuddyPay(payment,buddyRequired){
    leadPay:payment-buddyPay
  };
 
+}
+
+
+// Pure: groups a task list into what "this user" posted, requested, or is
+// buddying on, for the Profile page's My Activity card.
+function computeActivity(taskList){
+
+ return {
+   posted:taskList.filter(t=>t.id.startsWith("user_")),
+   requested:taskList.filter(t=>t.requested),
+   buddying:taskList.filter(t=>t.buddyRequested)
+ };
+
+}
+
+
+const checkinSteps = [
+ { id:"ciHeading", label:"Heading there", toastMessage:"Heading there status saved" },
+ { id:"ciArrived", label:"Arrived", toastMessage:"Arrival saved" },
+ { id:"ciBuddy", label:"Buddy checked in", toastMessage:"Buddy check-in saved" },
+ { id:"ciStarted", label:"Task started", toastMessage:"Task started" },
+ { id:"ciCompleted", label:"Task completed", toastMessage:"Task completed" }
+];
+
+
+// Pure: a check-in step only ever moves forward, and clicking an earlier
+// step again should not un-complete a later one.
+function nextCheckinStep(currentStep,clickedIndex){
+ return Math.max(currentStep,clickedIndex);
+}
+
+
+// Pure: human-readable status line for the current check-in step.
+function checkinStatusLabel(step){
+ return step<0 ? "Not started" : checkinSteps[step].label;
 }
 
 
@@ -269,6 +316,44 @@ function renderTasks(){
  `<div class="card"><div class="desc">No tasks found in this category yet.</div></div>`;
 
  document.getElementById("statOpen").textContent = tasks.length;
+
+ renderMyActivity();
+
+}
+
+
+function renderMyActivity(){
+
+ const el = document.getElementById("myActivity");
+
+ if(!el) return;
+
+
+ const { posted, requested, buddying } = computeActivity(tasks);
+
+
+ const rows = [
+   ...posted.map(t=>activityRow("POSTED","",t)),
+   ...requested.map(t=>activityRow("REQUESTED","",t)),
+   ...buddying.map(t=>activityRow("BUDDY","buddy",t))
+ ];
+
+
+ el.innerHTML = rows.length
+   ? rows.join("")
+   : `<p class="desc">No activity yet. Post a task or request one from Find Work.</p>`;
+
+}
+
+
+function activityRow(label,badgeClass,t){
+
+ return `
+   <div class="meta" style="justify-content:space-between;align-items:center">
+     <span>${safe(t.title)}</span>
+     <span class="badge ${badgeClass}">${label}</span>
+   </div>
+ `;
 
 }
 
@@ -357,15 +442,19 @@ function taskCard(t){
      ${
        t.buddy
        ?
-       `<button class="btn secondary"
-                onclick="buddyRequest('${t.id}')">
-          JOIN AS BUDDY
-        </button>`
+         (t.buddyRequested
+           ? `<button class="btn secondary" disabled>✓ BUDDY REQUESTED</button>`
+           : `<button class="btn secondary"
+                      onclick="buddyRequest('${t.id}')">
+                JOIN AS BUDDY
+              </button>`)
        :
-       `<button class="btn secondary"
-                onclick="requestTask('${t.id}')">
-          REQUEST TASK
-        </button>`
+         (t.requested
+           ? `<button class="btn secondary" disabled>✓ REQUESTED</button>`
+           : `<button class="btn secondary"
+                      onclick="requestTask('${t.id}')">
+                REQUEST TASK
+              </button>`)
      }
 
    </div>
@@ -497,28 +586,44 @@ function openTask(id){
 
    <h3>📷 Task Area Photos</h3>
 
-   <p class="desc">
-     Task posters can upload previews showing the room,
-     furniture, boxes, yard or other work area before you accept.
-   </p>
+   ${
+     t.photos && t.photos.length
+     ?
+     `<div class="photo-previews">
+        ${t.photos.map(src=>`<img src="${src}">`).join("")}
+      </div>`
+     :
+     `<p class="desc">
+        Task posters can upload previews showing the room,
+        furniture, boxes, yard or other work area before you accept.
+      </p>`
+   }
 
  </div>
 
 
- <button class="btn primary"
-         onclick="requestTask('${t.id}')">
-   REQUEST THIS TASK
- </button>
+ ${
+   t.requested
+   ?
+   `<button class="btn primary" disabled>✓ REQUEST SENT</button>`
+   :
+   `<button class="btn primary"
+            onclick="requestTask('${t.id}')">
+      REQUEST THIS TASK
+    </button>`
+ }
 
 
  ${
    t.buddy
    ?
-   `<button class="btn secondary"
-            style="margin-top:8px"
-            onclick="buddyRequest('${t.id}')">
-      JOIN AS SAFETY BUDDY
-    </button>`
+     (t.buddyRequested
+       ? `<button class="btn secondary" style="margin-top:8px" disabled>✓ BUDDY REQUEST SENT</button>`
+       : `<button class="btn secondary"
+                  style="margin-top:8px"
+                  onclick="buddyRequest('${t.id}')">
+            JOIN AS SAFETY BUDDY
+          </button>`)
    :
    ""
  }
@@ -560,6 +665,12 @@ function requestTask(id){
 
  if(!t) return;
 
+ if(!t.requested){
+   t.requested = true;
+   localStorage.setItem(KEY,JSON.stringify(tasks));
+   renderTasks();
+ }
+
  toast(`Request sent for ${t.title}`);
 
  closeTask();
@@ -572,6 +683,12 @@ function buddyRequest(id){
  const t = tasks.find(x=>x.id===id);
 
  if(!t) return;
+
+ if(!t.buddyRequested){
+   t.buddyRequested = true;
+   localStorage.setItem(KEY,JSON.stringify(tasks));
+   renderTasks();
+ }
 
  toast(`Buddy request sent for ${t.title}`);
 
@@ -664,9 +781,70 @@ function loadTrusted(){
 }
 
 
+const CHECKIN_KEY = "hho_checkin";
+
+
+function getCheckinStep(){
+
+ const raw = localStorage.getItem(CHECKIN_KEY);
+
+ return raw===null ? -1 : Number(raw);
+
+}
+
+
+function setCheckinStep(index){
+
+ const next = nextCheckinStep(getCheckinStep(),index);
+
+ localStorage.setItem(CHECKIN_KEY,String(next));
+
+ renderCheckin();
+
+ toast(checkinSteps[index].toastMessage);
+
+}
+
+
+function renderCheckin(){
+
+ const step = getCheckinStep();
+
+
+ checkinSteps.forEach((s,i)=>{
+
+   const btn = document.getElementById(s.id);
+
+   if(!btn) return;
+
+   btn.classList.toggle("done",i<=step);
+
+ });
+
+
+ const statusEl = document.getElementById("checkinStatus");
+
+ if(statusEl){
+   statusEl.textContent = "Status: "+checkinStatusLabel(step);
+ }
+
+}
+
+
+function resetCheckin(){
+
+ localStorage.removeItem(CHECKIN_KEY);
+
+ renderCheckin();
+
+}
+
+
 function leaveNow(){
 
  toast("Appointment ended. Move to a safe location.");
+
+ resetCheckin();
 
  setTimeout(()=>{
 
@@ -696,8 +874,10 @@ function resetDemo(){
 
  localStorage.removeItem("hho_trusted");
 
+ localStorage.removeItem(CHECKIN_KEY);
 
- tasks=[...demoTasks];
+
+ tasks=cloneDemoTasks();
 
  localStorage.setItem(KEY,JSON.stringify(tasks));
 
@@ -705,6 +885,8 @@ function resetDemo(){
  renderTasks();
 
  showVerification();
+
+ renderCheckin();
 
  toast("Demo reset");
 
@@ -877,6 +1059,8 @@ function initApp(){
 
  setDefaultDate();
 
+ renderCheckin();
+
 }
 
 
@@ -892,6 +1076,10 @@ if(typeof module !== "undefined" && module.exports){
    computeBuddyPay,
    filterTasks,
    computeDefaultDateISO,
+   computeActivity,
+   nextCheckinStep,
+   checkinStatusLabel,
+   checkinSteps,
    demoTasks,
    filterNames
  };

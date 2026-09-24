@@ -3,6 +3,10 @@ const {
   computeBuddyPay,
   filterTasks,
   computeDefaultDateISO,
+  computeActivity,
+  nextCheckinStep,
+  checkinStatusLabel,
+  checkinSteps,
   demoTasks
 } = require("../app.js");
 
@@ -72,10 +76,10 @@ describe("computeBuddyPay()", () => {
     expect(computeBuddyPay(10, true)).toEqual({ buddyPay: 10, leadPay: 0 });
   });
 
-  it("documents that lead pay goes negative below the $10 minimum (no clamp in computeBuddyPay)", () => {
-    // The post form enforces min="10" on payment, but computeBuddyPay itself
-    // does not guard against smaller values, so leadPay can go negative.
-    expect(computeBuddyPay(5, true)).toEqual({ buddyPay: 10, leadPay: -5 });
+  it("clamps buddy pay to the payment so lead pay never goes negative", () => {
+    // Below the form's $10 minimum payment, the 22%/$10-floor split would
+    // otherwise send more to the buddy than the task actually pays.
+    expect(computeBuddyPay(5, true)).toEqual({ buddyPay: 5, leadPay: 0 });
   });
 
 });
@@ -147,6 +151,75 @@ describe("computeDefaultDateISO()", () => {
   it("rolls over across a year boundary", () => {
     const now = new Date("2025-12-30T12:00:00Z");
     expect(computeDefaultDateISO(now)).toBe("2026-01-01");
+  });
+
+});
+
+
+describe("computeActivity()", () => {
+
+  const list = [
+    { id: "user_1", title: "My posted task" },
+    { id: "t1", title: "Requested task", requested: true },
+    { id: "t2", title: "Buddy task", buddyRequested: true },
+    { id: "t3", title: "Untouched task" }
+  ];
+
+  it("buckets posted, requested, and buddying tasks independently", () => {
+    const result = computeActivity(list);
+
+    expect(result.posted.map(t => t.id)).toEqual(["user_1"]);
+    expect(result.requested.map(t => t.id)).toEqual(["t1"]);
+    expect(result.buddying.map(t => t.id)).toEqual(["t2"]);
+  });
+
+  it("returns empty buckets for a list with no activity", () => {
+    const result = computeActivity([{ id: "t9", title: "Nothing yet" }]);
+
+    expect(result).toEqual({ posted: [], requested: [], buddying: [] });
+  });
+
+  it("counts a task in more than one bucket when it qualifies for both", () => {
+    const both = [{ id: "user_2", title: "Posted and requested", requested: true }];
+    const result = computeActivity(both);
+
+    expect(result.posted.map(t => t.id)).toEqual(["user_2"]);
+    expect(result.requested.map(t => t.id)).toEqual(["user_2"]);
+  });
+
+});
+
+
+describe("nextCheckinStep()", () => {
+
+  it("advances from -1 (not started) to the clicked step", () => {
+    expect(nextCheckinStep(-1, 0)).toBe(0);
+  });
+
+  it("advances forward when clicking a later step", () => {
+    expect(nextCheckinStep(1, 3)).toBe(3);
+  });
+
+  it("does not regress when re-clicking an earlier, already-completed step", () => {
+    expect(nextCheckinStep(3, 1)).toBe(3);
+  });
+
+  it("is a no-op when re-clicking the current step", () => {
+    expect(nextCheckinStep(2, 2)).toBe(2);
+  });
+
+});
+
+
+describe("checkinStatusLabel()", () => {
+
+  it("reports 'Not started' before any step is completed", () => {
+    expect(checkinStatusLabel(-1)).toBe("Not started");
+  });
+
+  it("reports the label of the current step", () => {
+    expect(checkinStatusLabel(0)).toBe(checkinSteps[0].label);
+    expect(checkinStatusLabel(4)).toBe(checkinSteps[4].label);
   });
 
 });

@@ -458,6 +458,14 @@ textarea:focus{
   border-left:4px solid var(--hotpink);
 }
 
+.ci-btn.done{
+  opacity:.55;
+}
+
+.ci-btn.done::after{
+  content:" ✓";
+}
+
 .leave{
   width:100%;
   padding:17px;
@@ -1122,31 +1130,38 @@ hr{
 
     <h3>Appointment check-in</h3>
 
-    <button class="btn secondary"
-            onclick="toast('Heading there status saved')">
+    <p class="note" id="checkinStatus">Status: Not started</p>
+
+    <button id="ciHeading"
+            class="btn secondary ci-btn"
+            onclick="setCheckinStep(0)">
       I'M HEADING THERE
     </button>
 
-    <button class="btn secondary"
-            onclick="toast('Arrival saved')"
+    <button id="ciArrived"
+            class="btn secondary ci-btn"
+            onclick="setCheckinStep(1)"
             style="margin-top:8px">
       I'VE ARRIVED
     </button>
 
-    <button class="btn green"
-            onclick="toast('Buddy check-in saved')"
+    <button id="ciBuddy"
+            class="btn green ci-btn"
+            onclick="setCheckinStep(2)"
             style="margin-top:8px">
       BUDDY IS HERE
     </button>
 
-    <button class="btn primary"
-            onclick="toast('Task started')"
+    <button id="ciStarted"
+            class="btn primary ci-btn"
+            onclick="setCheckinStep(3)"
             style="margin-top:8px">
       START TASK
     </button>
 
-    <button class="btn green"
-            onclick="toast('Task completed')"
+    <button id="ciCompleted"
+            class="btn green ci-btn"
+            onclick="setCheckinStep(4)"
             style="margin-top:8px">
       TASK COMPLETE
     </button>
@@ -1223,6 +1238,15 @@ hr{
       Prototype only. A real version should use a specialized
       third-party verification provider.
     </p>
+
+  </div>
+
+
+  <div class="card">
+
+    <h3>My Activity</h3>
+
+    <div id="myActivity"></div>
 
   </div>
 

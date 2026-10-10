@@ -1,482 +1,1761 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mobile Oil Change Kansas City | Woman-Owned Mobile Car Care</title>
-  <meta name="description" content="Woman-owned mobile oil changes serving Kansas City Northland. Convenient oil changes at your home, workplace or approved parking location with clear upfront pricing.">
-  <meta name="theme-color" content="#050007">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#050007">
 
-  <!-- Open Graph (link previews on Facebook, texts, etc.) -->
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="OilKC Mobile Oil Change">
-  <meta property="og:title" content="Mobile Oil Change Kansas City | Woman-Owned Mobile Car Care">
-  <meta property="og:description" content="Woman-owned mobile oil changes serving Kansas City Northland. Convenient oil changes at your home, workplace or approved parking location with clear upfront pricing.">
-  <meta property="og:locale" content="en_US">
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Mobile Oil Change Kansas City | Woman-Owned Mobile Car Care">
-  <meta name="twitter:description" content="Woman-owned mobile oil changes serving Kansas City Northland, with clear upfront pricing.">
+<title>Help Her Out | Mobile Oil Change Kansas City</title>
 
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23050007'/%3E%3Cpath d='M32 10c7 11 14 19 14 28a14 14 0 0 1-28 0c0-9 7-17 14-28z' fill='none' stroke='%23ff35c8' stroke-width='5'/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="styles.css">
+<style>
+:root{
+  --black:#050007;
+  --deep:#0d0014;
+  --panel:#16001f;
+  --panel2:#21002e;
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "AutomotiveBusiness",
-    "name": "OilKC Mobile Oil Change",
-    "description": "Woman-owned, woman-operated mobile oil change service in the Kansas City Northland.",
-    "areaServed": "Kansas City Northland, Missouri",
-    "priceRange": "$50+"
+  --pink:#ff28bd;
+  --hotpink:#ff4bd2;
+  --purple:#9a49ff;
+  --lavender:#ed9cff;
+
+  --white:#fff;
+  --text:#fff8ff;
+  --muted:#c7afce;
+
+  --green:#63ffc7;
+  --yellow:#ffd166;
+  --red:#ff477e;
+
+  --border:rgba(255,65,210,.32);
+  --glow:0 0 12px rgba(255,40,190,.55),
+         0 0 32px rgba(155,73,255,.25);
+}
+
+*{
+  box-sizing:border-box;
+  -webkit-tap-highlight-color:transparent;
+}
+
+html,body{
+  margin:0;
+  min-height:100%;
+  background:var(--black);
+}
+
+body{
+  color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  background:
+    radial-gradient(circle at 50% -5%,rgba(255,40,190,.18),transparent 28%),
+    radial-gradient(circle at 100% 22%,rgba(155,73,255,.10),transparent 30%),
+    linear-gradient(180deg,#050007,#09000e 55%,#050007);
+  padding-bottom:90px;
+}
+
+button,input,select,textarea{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+.app{
+  width:min(100%,680px);
+  margin:auto;
+}
+
+.view{
+  display:none;
+  padding:16px;
+  animation:fade .22s ease;
+}
+
+.view.active{
+  display:block;
+}
+
+@keyframes fade{
+  from{opacity:0;transform:translateY(6px)}
+  to{opacity:1;transform:none}
+}
+
+/* HEADER */
+
+.header{
+  position:sticky;
+  top:0;
+  z-index:20;
+
+  background:rgba(7,0,11,.88);
+  backdrop-filter:blur(15px);
+  -webkit-backdrop-filter:blur(15px);
+
+  border-bottom:1px solid var(--border);
+  padding:12px 16px;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.mini-brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:900;
+}
+
+.mini-logo{
+  width:38px;
+  height:38px;
+}
+
+.mini-brand span span{
+  color:var(--hotpink);
+}
+
+.area-pill{
+  border:1px solid var(--border);
+  color:var(--muted);
+  border-radius:999px;
+  padding:7px 10px;
+  font-size:12px;
+  background:#120019;
+}
+
+/* HOME */
+
+.hero{
+  text-align:center;
+  padding:10px 0 22px;
+}
+
+.logo-wrap{
+  width:210px;
+  height:210px;
+  margin:8px auto 8px;
+  display:grid;
+  place-items:center;
+
+  border-radius:45px;
+
+  background:
+    radial-gradient(circle,rgba(255,33,184,.14),rgba(155,77,255,.05) 47%,transparent 72%);
+
+  border:1px solid rgba(255,90,220,.17);
+
+  box-shadow:
+    inset 0 0 35px rgba(255,33,184,.08),
+    0 0 48px rgba(255,33,184,.13);
+}
+
+.main-logo{
+  width:190px;
+  filter:
+    drop-shadow(0 0 10px rgba(255,40,200,.9))
+    drop-shadow(0 0 30px rgba(155,77,255,.4));
+  animation:pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse{
+  50%{
+    transform:scale(1.025);
+    filter:
+      drop-shadow(0 0 16px rgba(255,40,200,1))
+      drop-shadow(0 0 42px rgba(155,77,255,.65));
   }
-  </script>
+}
+
+.hero h1{
+  font-size:44px;
+  margin:4px 0;
+  line-height:1;
+  letter-spacing:-1.6px;
+}
+
+.hero h1 span{
+  color:var(--hotpink);
+  text-shadow:0 0 20px rgba(255,40,190,.65);
+}
+
+.tagline{
+  color:#f4c9ef;
+  font-size:18px;
+  font-weight:650;
+  margin:14px 0 24px;
+}
+
+.ctas{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+
+/* BUTTONS */
+
+.btn{
+  width:100%;
+  border:none;
+  border-radius:14px;
+  padding:14px 16px;
+  color:white;
+  font-weight:850;
+}
+
+.primary{
+  background:linear-gradient(135deg,#ff34c8,#f30094 52%,#9941ff);
+  border:1px solid rgba(255,160,235,.35);
+  box-shadow:0 0 20px rgba(255,33,184,.35);
+}
+
+.secondary{
+  background:linear-gradient(135deg,rgba(255,40,190,.09),rgba(154,73,255,.14));
+  border:1px solid rgba(211,96,255,.5);
+}
+
+.small{
+  width:auto;
+  padding:10px 13px;
+  font-size:13px;
+}
+
+.danger{
+  background:rgba(255,71,126,.13);
+  color:#ff8dac;
+  border:1px solid rgba(255,71,126,.55);
+}
+
+.green{
+  background:rgba(99,255,199,.11);
+  color:var(--green);
+  border:1px solid rgba(99,255,199,.45);
+}
+
+/* STATS */
+
+.stats{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-top:18px;
+}
+
+.stat{
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:15px;
+  background:linear-gradient(145deg,rgba(33,0,46,.82),rgba(10,0,15,.95));
+}
+
+.stat b{
+  display:block;
+  font-size:27px;
+  color:#ff64d9;
+  text-shadow:0 0 12px rgba(255,33,184,.4);
+}
+
+.stat span{
+  color:var(--muted);
+  font-size:12px;
+}
+
+/* TITLES */
+
+.page-title{
+  margin:7px 0 4px;
+  font-size:27px;
+}
+
+.subtitle{
+  color:var(--muted);
+  margin:0 0 18px;
+}
+
+/* CARDS */
+
+.card{
+  background:linear-gradient(145deg,rgba(32,0,44,.9),rgba(10,0,15,.96));
+  border:1px solid var(--border);
+  border-radius:17px;
+  padding:15px;
+  margin-bottom:12px;
+
+  box-shadow:
+    0 7px 26px rgba(0,0,0,.32),
+    0 0 18px rgba(255,33,184,.07);
+}
+
+.card h3{
+  margin:0 0 8px;
+}
+
+.task-top{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+}
+
+.pay{
+  color:#ff66dc;
+  font-weight:950;
+  font-size:21px;
+}
+
+.meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  margin:9px 0;
+}
+
+.badge{
+  font-size:11px;
+  padding:5px 8px;
+  border-radius:999px;
+
+  background:rgba(255,33,184,.09);
+  border:1px solid rgba(255,67,207,.28);
+  color:#f3c5eb;
+}
+
+.verified{
+  color:var(--green);
+  border-color:rgba(99,255,199,.4);
+  background:rgba(99,255,199,.07);
+}
+
+.buddy{
+  color:#ffd1f4;
+  border-color:#d875ff;
+}
+
+.desc{
+  color:var(--muted);
+  line-height:1.45;
+  font-size:14px;
+}
+
+.task-actions{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+  margin-top:12px;
+}
+
+/* FILTERS */
+
+.filters{
+  display:flex;
+  gap:8px;
+  overflow-x:auto;
+  scrollbar-width:none;
+  margin:0 -2px 15px;
+}
+
+.filters::-webkit-scrollbar{
+  display:none;
+}
+
+.filter{
+  flex:0 0 auto;
+  border-radius:999px;
+  padding:9px 13px;
+
+  color:#eee;
+  background:#130019;
+  border:1px solid var(--border);
+}
+
+.filter.active{
+  background:linear-gradient(135deg,#ff35c8,#9744ff);
+  box-shadow:0 0 16px rgba(255,33,184,.32);
+}
+
+/* FORMS */
+
+.form-card{
+  border:1px solid var(--border);
+  background:linear-gradient(145deg,rgba(27,0,38,.9),rgba(9,0,14,.96));
+  border-radius:18px;
+  padding:16px;
+}
+
+.field{
+  margin-bottom:14px;
+}
+
+label{
+  display:block;
+  color:var(--lavender);
+  font-size:13px;
+  font-weight:750;
+  margin-bottom:7px;
+}
+
+input,
+select,
+textarea{
+  width:100%;
+  padding:12px;
+
+  background:#09000d;
+  border:1px solid rgba(255,57,204,.3);
+  color:white;
+
+  border-radius:11px;
+  outline:none;
+}
+
+textarea{
+  min-height:105px;
+  resize:vertical;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+  border-color:var(--hotpink);
+  box-shadow:0 0 17px rgba(255,33,184,.25);
+}
+
+.two{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+
+/* PHOTO UPLOAD */
+
+.photo-box{
+  border:2px dashed rgba(255,70,210,.38);
+  border-radius:14px;
+  padding:22px;
+  text-align:center;
+  color:var(--muted);
+  background:rgba(255,33,184,.03);
+}
+
+.photo-previews{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+  margin-top:10px;
+}
+
+.photo-previews img{
+  width:100%;
+  aspect-ratio:1;
+  object-fit:cover;
+  border-radius:10px;
+  border:1px solid var(--border);
+}
+
+/* SAFETY */
+
+.safety-card{
+  border-left:4px solid var(--hotpink);
+}
+
+.leave{
+  width:100%;
+  padding:17px;
+  margin-top:12px;
+
+  background:#370014;
+  color:#ff8cab;
+
+  border:2px solid #ff477e;
+  border-radius:14px;
+
+  font-size:16px;
+  font-weight:950;
+}
+
+/* PROFILE */
+
+.profile-head{
+  text-align:center;
+}
+
+.avatar{
+  width:96px;
+  height:96px;
+  border-radius:50%;
+  margin:10px auto;
+
+  display:grid;
+  place-items:center;
+
+  font-size:44px;
+
+  background:linear-gradient(145deg,#ff35c8,#8d42ff);
+  border:2px solid #ff78e2;
+  box-shadow:var(--glow);
+}
+
+.level{
+  display:inline-block;
+  margin-top:6px;
+  border-radius:999px;
+  padding:7px 12px;
+
+  color:#ffd0f5;
+  border:1px solid rgba(255,69,211,.4);
+  background:rgba(255,33,184,.08);
+}
+
+/* BOTTOM NAV */
+
+.nav{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  z-index:40;
+
+  background:rgba(7,0,11,.96);
+  backdrop-filter:blur(18px);
+
+  border-top:1px solid rgba(255,47,200,.32);
+  box-shadow:0 -10px 35px rgba(255,33,184,.10);
+}
+
+.nav-inner{
+  max-width:680px;
+  margin:auto;
+
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+}
+
+.nav button{
+  border:none;
+  background:none;
+  color:#9f8ca6;
+
+  padding:9px 4px calc(8px + env(safe-area-inset-bottom));
+  font-size:10px;
+}
+
+.nav button strong{
+  display:block;
+  font-size:20px;
+  margin-bottom:2px;
+}
+
+.nav button.active{
+  color:#ff50d5;
+  text-shadow:0 0 12px rgba(255,33,184,.7);
+}
+
+/* MODAL */
+
+.modal{
+  position:fixed;
+  inset:0;
+  display:none;
+  z-index:80;
+
+  background:rgba(0,0,0,.75);
+  backdrop-filter:blur(7px);
+
+  padding:15px;
+  align-items:flex-end;
+}
+
+.modal.open{
+  display:flex;
+}
+
+.sheet{
+  width:min(100%,680px);
+  max-height:88vh;
+  overflow:auto;
+  margin:auto;
+
+  background:linear-gradient(180deg,#190022,#07000b);
+
+  border:1px solid var(--border);
+  border-radius:23px 23px 15px 15px;
+
+  padding:17px;
+
+  box-shadow:0 -20px 60px rgba(255,33,184,.14);
+}
+
+.sheet-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.close{
+  background:none;
+  border:none;
+  color:white;
+  font-size:27px;
+}
+
+/* TOAST */
+
+.toast{
+  position:fixed;
+  bottom:96px;
+  left:50%;
+  transform:translateX(-50%) translateY(20px);
+
+  opacity:0;
+  transition:.2s;
+
+  padding:10px 15px;
+  border-radius:999px;
+
+  background:#190022;
+  border:1px solid var(--border);
+
+  z-index:100;
+}
+
+.toast.show{
+  opacity:1;
+  transform:translateX(-50%);
+}
+
+.note{
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.5;
+}
+
+.money{
+  color:var(--green);
+  font-weight:850;
+}
+
+hr{
+  border:0;
+  border-top:1px solid var(--border);
+  margin:16px 0;
+}
+
+@media(max-width:520px){
+  .ctas,
+  .two,
+  .task-actions{
+    grid-template-columns:1fr;
+  }
+
+  .hero h1{
+    font-size:39px;
+  }
+}
+
+/* OIL SERVICE ADDITIONS */
+
+.group{
+  border:0;
+  padding:0;
+  margin:0 0 6px;
+}
+
+.group legend{
+  color:var(--hotpink);
+  font-weight:850;
+  font-size:14px;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  margin-bottom:10px;
+  padding:0;
+}
+
+.three{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:10px;
+}
+
+.label{
+  color:var(--lavender);
+  font-size:13px;
+  font-weight:750;
+  margin:0 0 7px;
+}
+
+.choice-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+}
+
+.choice-grid.four{
+  grid-template-columns:repeat(4,1fr);
+}
+
+.choice{
+  display:block;
+  position:relative;
+  margin:0;
+  color:inherit;
+  font-size:inherit;
+  font-weight:inherit;
+}
+
+.choice input{
+  position:absolute;
+  opacity:0;
+  width:1px;
+  height:1px;
+}
+
+.choice span{
+  display:block;
+  text-align:center;
+  padding:12px 6px;
+  border:1px solid rgba(255,57,204,.3);
+  border-radius:11px;
+  background:#09000d;
+  color:#eee;
+  font-weight:750;
+  font-size:14px;
+}
+
+.choice input:checked + span{
+  background:linear-gradient(135deg,#ff35c8,#9744ff);
+  border-color:transparent;
+  box-shadow:0 0 16px rgba(255,33,184,.32);
+}
+
+.choice input:focus-visible + span{
+  outline:2px solid var(--hotpink);
+  outline-offset:2px;
+}
+
+.check-confirm{
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+  color:var(--muted);
+  font-size:14px;
+  font-weight:400;
+  line-height:1.45;
+  margin:0;
+}
+
+.check-confirm input{
+  flex:0 0 22px;
+  width:22px;
+  height:22px;
+  margin:2px 0 0;
+  accent-color:var(--pink);
+}
+
+.error{
+  color:#ff8dac;
+  background:rgba(255,71,126,.1);
+  border:1px solid rgba(255,71,126,.55);
+  border-radius:12px;
+  padding:10px 12px;
+  font-size:14px;
+  margin:0 0 12px;
+}
+
+.check-list{
+  list-style:none;
+  padding:0;
+  margin:10px 0 0;
+}
+
+.check-list li{
+  position:relative;
+  padding-left:24px;
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.5;
+  margin-bottom:6px;
+}
+
+.check-list li::before{
+  content:"✓";
+  position:absolute;
+  left:0;
+  color:var(--hotpink);
+  font-weight:900;
+}
+
+.card.featured{
+  border-color:var(--hotpink);
+  box-shadow:var(--glow);
+}
+
+.meta:empty{
+  display:none;
+}
+
+.faq{
+  border-top:1px solid var(--border);
+  padding:12px 0;
+}
+
+.faq:first-of-type{
+  border-top:0;
+}
+
+.faq summary{
+  cursor:pointer;
+  color:#ffd1f4;
+  font-weight:750;
+  list-style:none;
+}
+
+.faq summary::-webkit-details-marker{
+  display:none;
+}
+
+.faq summary::after{
+  content:"+";
+  float:right;
+  color:var(--hotpink);
+  font-weight:900;
+}
+
+.faq[open] summary::after{
+  content:"−";
+}
+
+.faq .desc{
+  margin:8px 0 0;
+}
+
+.note.center{
+  text-align:center;
+}
+
+.mini-logo + span{
+  white-space:nowrap;
+}
+
+@media(max-width:520px){
+  .three,
+  .choice-grid,
+  .choice-grid.four{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .three > .field:first-child{
+    grid-column:1 / -1;
+  }
+}
+
+</style>
 </head>
+
 <body>
-  <a class="skip-link" href="#main">Skip to main content</a>
 
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="#top" aria-label="OilKC home">
-        <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
-          <path d="M32 8c8 12 16 21 16 31a16 16 0 0 1-32 0c0-10 8-19 16-31z" fill="none" stroke="currentColor" stroke-width="5" stroke-linejoin="round"/>
-        </svg>
-        <span class="brand-name">Oil<span class="brand-accent">KC</span></span>
-      </a>
-      <nav class="header-nav" aria-label="Main">
-        <a href="#pricing">Pricing</a>
-        <a href="#how">How It Works</a>
-        <a href="#faq">FAQ</a>
-        <a class="phone-link" href="#" data-phone-link hidden>Call</a>
-        <a class="btn btn-small btn-primary" href="#book">Book</a>
-      </nav>
-    </div>
-  </header>
+<header class="header">
 
-  <main id="main">
-    <!-- ============ HERO ============ -->
-    <section class="hero" id="top" aria-labelledby="hero-title">
-      <div class="hero-glow" aria-hidden="true"></div>
-      <div class="container hero-inner">
-        <p class="eyebrow">Mobile oil change · Kansas City Northland</p>
-        <h1 id="hero-title">Mobile Oil Changes <span class="grad-text">That Come to You.</span></h1>
-        <p class="hero-sub">Woman-owned. Woman-operated. Convenient mobile car care built with women in mind.</p>
-        <p class="hero-text">Skip the waiting room. I come to your home, workplace, or another safe location in the <span data-config="serviceArea">Kansas City Northland</span> and change your oil while you get on with your day.</p>
-        <div class="hero-ctas">
-          <a class="btn btn-primary btn-large" href="#book">Book an Oil Change</a>
-          <a class="btn btn-outline btn-large" href="#pricing">See Pricing</a>
-        </div>
-        <ul class="trust-row" aria-label="Highlights">
-          <li><span class="dot dot-pink" aria-hidden="true"></span>Woman Owned</li>
-          <li><span class="dot dot-cyan" aria-hidden="true"></span>Mobile Service</li>
-          <li><span class="dot dot-violet" aria-hidden="true"></span>Upfront Pricing</li>
-          <li><span class="dot dot-cyan" aria-hidden="true"></span><span data-config="serviceArea">Kansas City Northland</span></li>
-        </ul>
-      </div>
-    </section>
+  <div class="mini-brand">
 
-    <!-- ============ PRICING ============ -->
-    <section class="section" id="pricing" aria-labelledby="pricing-title">
-      <div class="container">
-        <p class="eyebrow">Pricing</p>
-        <h2 id="pricing-title">Simple, Upfront Pricing</h2>
-        <p class="section-lead">Pick the option that fits you. Every price is confirmed before your appointment.</p>
+    <svg class="mini-logo" viewBox="0 0 200 220">
+      <path d="M100 10C57 10 36 44 36 80c0 45 64 120 64 120s64-75 64-120c0-36-21-70-64-70z"
+        fill="none" stroke="#ff35c8" stroke-width="10"/>
 
-        <div class="price-grid">
-          <article class="price-card">
-            <h3 class="price-name">Service Only</h3>
-            <p class="price"><span class="price-amount">$50</span></p>
-            <p class="price-note">You supply the correct oil and filter.</p>
-            <ul class="check-list">
-              <li>Mobile service</li>
-              <li>Oil change labor</li>
-              <li>Basic visual fluid check</li>
-              <li>Tire pressure check</li>
-              <li>Used oil removal</li>
-            </ul>
-            <a class="btn btn-outline btn-block" href="#book" data-service="service-only">Book Service Only</a>
-          </article>
+      <circle cx="100" cy="78" r="46"
+        fill="#0b0010"
+        stroke="#a74cff"
+        stroke-width="4"/>
 
-          <article class="price-card price-card-featured">
-            <p class="badge">Most Popular</p>
-            <h3 class="price-name">Full Synthetic</h3>
-            <p class="price"><span class="price-from">Starting at</span> <span class="price-amount">$95</span></p>
-            <p class="price-note">I bring the oil and filter.</p>
-            <ul class="check-list">
-              <li>Up to 5 quarts full synthetic motor oil</li>
-              <li>Standard oil filter</li>
-              <li>Mobile service</li>
-              <li>Oil change labor</li>
-              <li>Basic fluid check</li>
-              <li>Tire pressure check</li>
-              <li>Used oil removal</li>
-            </ul>
-            <a class="btn btn-primary btn-block" href="#book" data-service="full-synthetic">Book Full Synthetic</a>
-          </article>
+      <path d="M68 82l32-28 32 28M76 78v38h48V78"
+        fill="none"
+        stroke="#fff"
+        stroke-width="7"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+    </svg>
 
-          <article class="price-card">
-            <h3 class="price-name">Large / Specialty Vehicle</h3>
-            <p class="price"><span class="price-amount price-amount-text">Quote First</span></p>
-            <p class="price-note">For:</p>
-            <ul class="check-list check-list-muted">
-              <li>Vehicles requiring more than 5 quarts</li>
-              <li>Diesel vehicles</li>
-              <li>Specialty filters</li>
-              <li>Vehicles with extensive skid plates</li>
-              <li>Unusually difficult access</li>
-            </ul>
-            <p class="price-note">Final price is confirmed before the appointment.</p>
-            <a class="btn btn-outline btn-block" href="#book" data-service="specialty-quote">Request a Quote</a>
-          </article>
-        </div>
+    <span>Help <span>Her</span> Out</span>
 
-        <p class="fine-print center">Vehicle requirements vary. Your exact price will be confirmed from your year, make, model, engine and oil requirements before service.</p>
-      </div>
-    </section>
-
-    <!-- ============ HOW IT WORKS ============ -->
-    <section class="section section-alt" id="how" aria-labelledby="how-title">
-      <div class="container">
-        <p class="eyebrow">How It Works</p>
-        <h2 id="how-title">Four Easy Steps</h2>
-        <ol class="steps">
-          <li class="step">
-            <span class="step-num" aria-hidden="true">1</span>
-            <h3>Enter Your Vehicle</h3>
-            <p>Tell me what you drive and where it's parked.</p>
-          </li>
-          <li class="step">
-            <span class="step-num" aria-hidden="true">2</span>
-            <h3>Get Confirmation</h3>
-            <p>I verify the correct oil, filter and final price.</p>
-          </li>
-          <li class="step">
-            <span class="step-num" aria-hidden="true">3</span>
-            <h3>I Come to You</h3>
-            <p>No waiting room and no unnecessary upselling.</p>
-          </li>
-          <li class="step">
-            <span class="step-num" aria-hidden="true">4</span>
-            <h3>You're Done</h3>
-            <p>Fresh oil, new filter and the used oil leaves with me.</p>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <!-- ============ WHY THIS EXISTS ============ -->
-    <section class="section" id="why" aria-labelledby="why-title">
-      <div class="container narrow">
-        <p class="eyebrow">Why This Exists</p>
-        <h2 id="why-title">Car Care, Made Straightforward</h2>
-        <p class="lead-text">Car maintenance shouldn't require sitting in an uncomfortable waiting room or wondering whether you're being sold something you don't need.</p>
-        <p>This service was built to make routine car care straightforward, transparent and convenient. It's woman-owned and woman-operated, designed with women in mind, and welcoming to anyone who wants a calm, no-pressure oil change done right where the car is parked.</p>
-      </div>
-    </section>
-
-    <!-- ============ TRUST ============ -->
-    <section class="section section-alt" id="trust" aria-labelledby="trust-title">
-      <div class="container">
-        <h2 id="trust-title" class="center">What You Can Count On</h2>
-        <ul class="trust-grid">
-          <li class="trust-item">
-            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2v20M17 6H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" /></svg>
-            <span>Clear Pricing</span>
-          </li>
-          <li class="trust-item">
-            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z" /><path d="M9 12l2 2 4-4" /></svg>
-            <span>No Surprise Repairs</span>
-          </li>
-          <li class="trust-item">
-            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="17" rx="2" /><path d="M3 9h18M8 2v4M16 2v4M9 15l2 2 4-4" /></svg>
-            <span>Vehicle Verified Before Appointment</span>
-          </li>
-          <li class="trust-item">
-            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 19H4l3-5M17 19h3l-3-5M9 7l3-5 3 5M8 19h8M5.5 11.5L9 7M18.5 11.5L15 7" /></svg>
-            <span>Used Oil Responsibly Recycled</span>
-          </li>
-          <li class="trust-item">
-            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 16V11l2-5h10l4 5h2v5h-2" /><circle cx="7" cy="17" r="2" /><circle cx="17" cy="17" r="2" /><path d="M9 17h6" /></svg>
-            <span>Mobile Convenience</span>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- ============ SERVICE AREA ============ -->
-    <section class="section" id="area" aria-labelledby="area-title">
-      <div class="container narrow">
-        <p class="eyebrow">Service Area</p>
-        <h2 id="area-title">Serving the <span data-config="serviceArea">Kansas City Northland</span></h2>
-        <p>At launch, coverage focuses on neighborhoods in the <span data-config="serviceArea">Kansas City Northland</span>. Keeping the service area tight keeps travel time low and appointments affordable.</p>
-        <p>Current focus areas include:</p>
-        <!-- SERVICE AREA LIST: edit these town names to change the areas shown -->
-        <ul class="pill-list">
-          <li>North Kansas City</li>
-          <li>Gladstone</li>
-          <li>Kansas City North</li>
-          <li>Liberty</li>
-          <li>Parkville</li>
-          <li>Riverside</li>
-        </ul>
-        <p class="fine-print">Service is not available everywhere. Outside the normal service area? You're welcome to <a href="#book">request a quote</a> and I'll let you know if I can make it work.</p>
-      </div>
-    </section>
-
-    <!-- ============ WHAT I SERVICE ============ -->
-    <section class="section section-alt" id="vehicles" aria-labelledby="vehicles-title">
-      <div class="container">
-        <p class="eyebrow">Vehicles</p>
-        <h2 id="vehicles-title">What I Service</h2>
-        <div class="two-col">
-          <div class="panel panel-cyan">
-            <h3>Usually a Great Fit</h3>
-            <p>Most gasoline-powered passenger cars, crossovers, SUVs and light trucks.</p>
-          </div>
-          <div class="panel panel-pink">
-            <h3>Please Request a Quote First</h3>
-            <ul class="dash-list">
-              <li>Diesel vehicles</li>
-              <li>European/specialty vehicles</li>
-              <li>Vehicles requiring more than 5 quarts</li>
-              <li>Extensive skid plates</li>
-              <li>Modified vehicles</li>
-              <li>Unusual cartridge-filter arrangements</li>
-              <li>Vehicles with damaged drain plugs</li>
-              <li>Vehicles with known oil leaks</li>
-            </ul>
-          </div>
-        </div>
-        <p class="fine-print">Some vehicles or parking situations may not be suitable for mobile service.</p>
-      </div>
-    </section>
-
-    <!-- ============ SAFETY ============ -->
-    <section class="section" id="safety" aria-labelledby="safety-title">
-      <div class="container narrow">
-        <p class="eyebrow">Service Conditions</p>
-        <h2 id="safety-title">Safety First</h2>
-        <p>For safety, service requires:</p>
-        <ul class="check-list">
-          <li>A reasonably level surface</li>
-          <li>Enough clearance and working space around the vehicle</li>
-          <li>Permission to perform automotive service at the location</li>
-          <li>No active traffic lane</li>
-          <li>No unsafe roadside locations</li>
-        </ul>
-        <p class="fine-print">I reserve the right to decline or reschedule a location that cannot be serviced safely.</p>
-      </div>
-    </section>
-
-    <!-- ============ BOOKING ============ -->
-    <section class="section section-book" id="book" aria-labelledby="book-title">
-      <div class="container narrow">
-        <p class="eyebrow">Booking</p>
-        <h2 id="book-title">Book an Oil Change</h2>
-        <p class="section-lead">Send your request below. You won't be charged now. I'll confirm your vehicle, price and appointment time first.</p>
-
-        <form id="booking-form" class="booking-form" novalidate>
-          <!-- Spam trap: humans never see or fill this -->
-          <div class="hp" aria-hidden="true">
-            <label for="company">Leave this empty</label>
-            <input type="text" id="company" name="_gotcha" tabindex="-1" autocomplete="off">
-          </div>
-          <input type="hidden" name="_subject" value="New mobile oil change request">
-
-          <div id="form-errors" class="form-errors" role="alert" tabindex="-1" hidden></div>
-
-          <fieldset>
-            <legend>Your Info</legend>
-            <div class="field">
-              <label for="name">Name <span class="req" aria-hidden="true">*</span></label>
-              <input id="name" name="name" type="text" autocomplete="name" required>
-            </div>
-            <div class="field-row">
-              <div class="field">
-                <label for="phone">Phone <span class="req" aria-hidden="true">*</span></label>
-                <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required>
-              </div>
-              <div class="field">
-                <label for="email">Email <span class="req" aria-hidden="true">*</span></label>
-                <input id="email" name="email" type="email" inputmode="email" autocomplete="email" required>
-              </div>
-            </div>
-          </fieldset>
-
-          <fieldset>
-            <legend>Your Vehicle</legend>
-            <div class="field-row field-row-3">
-              <div class="field">
-                <label for="vehicle-year">Year <span class="req" aria-hidden="true">*</span></label>
-                <input id="vehicle-year" name="vehicle_year" type="text" inputmode="numeric" maxlength="4" placeholder="e.g. 2019" required>
-              </div>
-              <div class="field">
-                <label for="vehicle-make">Make <span class="req" aria-hidden="true">*</span></label>
-                <input id="vehicle-make" name="vehicle_make" type="text" placeholder="e.g. Toyota" required>
-              </div>
-              <div class="field">
-                <label for="vehicle-model">Model <span class="req" aria-hidden="true">*</span></label>
-                <input id="vehicle-model" name="vehicle_model" type="text" placeholder="e.g. RAV4" required>
-              </div>
-            </div>
-            <div class="field-row">
-              <div class="field">
-                <label for="engine">Engine size <span class="optional">(if known)</span></label>
-                <input id="engine" name="engine_size" type="text" placeholder="e.g. 2.5L">
-              </div>
-              <div class="field">
-                <label for="mileage">Current mileage <span class="req" aria-hidden="true">*</span></label>
-                <input id="mileage" name="current_mileage" type="text" inputmode="numeric" placeholder="e.g. 48,000" required>
-              </div>
-            </div>
-            <div class="field">
-              <label for="service">Service requested <span class="req" aria-hidden="true">*</span></label>
-              <select id="service" name="service_requested" required>
-                <option value="">Choose a service…</option>
-                <option value="$50 Service Only — I supply oil/filter" data-key="service-only">$50 Service Only — I supply oil/filter</option>
-                <option value="$95+ Full Synthetic Mobile Oil Change" data-key="full-synthetic">$95+ Full Synthetic Mobile Oil Change</option>
-                <option value="Large/Specialty Vehicle — Request Quote" data-key="specialty-quote">Large/Specialty Vehicle — Request Quote</option>
-              </select>
-            </div>
-          </fieldset>
-
-          <fieldset>
-            <legend>Where &amp; When</legend>
-            <div class="field">
-              <label for="address">Service address <span class="req" aria-hidden="true">*</span></label>
-              <input id="address" name="service_address" type="text" autocomplete="street-address" required>
-            </div>
-            <div class="field-row">
-              <div class="field">
-                <label for="city">City <span class="req" aria-hidden="true">*</span></label>
-                <input id="city" name="city" type="text" autocomplete="address-level2" required>
-              </div>
-              <div class="field">
-                <label for="zip">ZIP code <span class="req" aria-hidden="true">*</span></label>
-                <input id="zip" name="zip" type="text" inputmode="numeric" autocomplete="postal-code" maxlength="10" required>
-              </div>
-            </div>
-            <div class="field">
-              <label for="date">Preferred date <span class="req" aria-hidden="true">*</span></label>
-              <input id="date" name="preferred_date" type="date" required>
-            </div>
-
-            <div class="field" role="radiogroup" aria-labelledby="time-label" aria-required="true" id="time-group">
-              <p class="label" id="time-label">Preferred time <span class="req" aria-hidden="true">*</span></p>
-              <div class="choice-grid">
-                <label class="choice"><input type="radio" name="preferred_time" value="Morning" required><span>Morning</span></label>
-                <label class="choice"><input type="radio" name="preferred_time" value="Afternoon"><span>Afternoon</span></label>
-                <label class="choice"><input type="radio" name="preferred_time" value="Evening"><span>Evening</span></label>
-              </div>
-            </div>
-
-            <div class="field" role="radiogroup" aria-labelledby="location-label" aria-required="true" id="location-group">
-              <p class="label" id="location-label">Location type <span class="req" aria-hidden="true">*</span></p>
-              <div class="choice-grid choice-grid-4">
-                <label class="choice"><input type="radio" name="location_type" value="Home" required><span>Home</span></label>
-                <label class="choice"><input type="radio" name="location_type" value="Work"><span>Work</span></label>
-                <label class="choice"><input type="radio" name="location_type" value="Apartment"><span>Apartment</span></label>
-                <label class="choice"><input type="radio" name="location_type" value="Other"><span>Other</span></label>
-              </div>
-            </div>
-          </fieldset>
-
-          <div class="field">
-            <label for="notes">Notes <span class="optional">(optional)</span></label>
-            <textarea id="notes" name="notes" rows="4" placeholder="Gate codes, parking details, anything I should know"></textarea>
-          </div>
-
-          <div class="field">
-            <label class="check-confirm" for="confirm-surface">
-              <input id="confirm-surface" name="surface_confirmed" type="checkbox" value="Yes" required>
-              <span>I confirm the vehicle will be parked on a reasonably level, safe, accessible surface with enough room to perform the service. <span class="req" aria-hidden="true">*</span></span>
-            </label>
-          </div>
-
-          <button type="submit" class="btn btn-primary btn-large btn-block" id="submit-btn">
-            <span class="btn-label">Send Booking Request</span>
-            <span class="spinner" aria-hidden="true"></span>
-          </button>
-          <p class="fine-print center">No payment is taken now. <span class="req" aria-hidden="true">*</span> Required field.</p>
-        </form>
-
-        <!-- Success screen (shown after a successful submit) -->
-        <div id="booking-success" class="success-card" tabindex="-1" hidden>
-          <div class="success-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" /></svg>
-          </div>
-          <h3>Request Received</h3>
-          <p>Thanks! I'll verify your vehicle requirements and appointment availability. Once confirmed, you'll receive your appointment confirmation and payment instructions.</p>
-          <a id="pay-now-btn" class="btn btn-primary btn-large btn-block" href="#" target="_blank" rel="noopener" hidden>Pay Now</a>
-          <button type="button" class="btn btn-outline btn-block" id="new-request-btn">Send Another Request</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ FAQ ============ -->
-    <section class="section section-alt" id="faq" aria-labelledby="faq-title">
-      <div class="container narrow">
-        <p class="eyebrow">FAQ</p>
-        <h2 id="faq-title">Common Questions</h2>
-        <div class="faq-list">
-          <details>
-            <summary>Do I need to supply anything?</summary>
-            <p>For the $50 service-only option, yes: the correct oil and filter. For full-service appointments, I bring them.</p>
-          </details>
-          <details>
-            <summary>How long does an oil change take?</summary>
-            <p>Most appointments should take approximately 30–60 minutes depending on the vehicle and access.</p>
-          </details>
-          <details>
-            <summary>Can you change oil on every vehicle?</summary>
-            <p>No. Most common passenger vehicles can be serviced, but some vehicles require specialty equipment or procedures. Vehicle details are verified before the appointment.</p>
-          </details>
-          <details>
-            <summary>Where do you perform the oil change?</summary>
-            <p>At homes, workplaces and other approved safe parking locations.</p>
-          </details>
-          <details>
-            <summary>What happens to the old oil?</summary>
-            <p>Used motor oil is collected and taken for proper recycling.</p>
-          </details>
-          <details>
-            <summary>Can I stay inside?</summary>
-            <p>Yes. Once access to the vehicle is arranged, you don't need to sit outside watching the entire service.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ FINAL CTA ============ -->
-    <section class="section final-cta" aria-labelledby="final-title">
-      <div class="container narrow center">
-        <h2 id="final-title">Ready for an Easier Oil Change?</h2>
-        <p>A woman-owned auto service in Kansas City bringing mobile oil changes to the Northland. Get an oil change at home or at work, with the price confirmed before I arrive.</p>
-        <div class="hero-ctas hero-ctas-center">
-          <a class="btn btn-primary btn-large" href="#book">Book an Oil Change</a>
-          <a class="btn btn-outline btn-large" href="#" data-phone-link hidden>Call or Text</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <p class="footer-brand">Oil<span class="brand-accent">KC</span> · Woman-owned mobile car care</p>
-      <p class="footer-seo">Mobile oil change and mobile car maintenance for Kansas City and the Northland KC area.</p>
-      <p class="footer-phone" data-phone-wrap hidden>Call or text: <a href="#" data-phone-link data-phone-text></a></p>
-      <div class="disclaimer">
-        <p>Pricing shown is starting pricing and may vary based on vehicle requirements, oil capacity, filter type, accessibility, travel distance and service conditions. Final pricing is confirmed before service.</p>
-        <p>This website does not constitute a guarantee that every vehicle or location can be serviced.</p>
-      </div>
-      <p class="copyright">© <span id="year">2026</span> OilKC. All rights reserved.</p>
-    </div>
-  </footer>
-
-  <!-- Sticky BOOK bar (phones only) -->
-  <div class="sticky-book" id="sticky-book">
-    <a class="btn btn-primary btn-block" href="#book">Book an Oil Change</a>
   </div>
 
-  <script src="script.js"></script>
+  <div class="area-pill">KC Northland</div>
+
+</header>
+
+
+<div class="app">
+
+<!-- HOME -->
+
+<section id="home" class="view active">
+
+  <div class="hero">
+
+    <div class="logo-wrap">
+
+      <svg class="main-logo"
+           viewBox="0 0 220 240"
+           xmlns="http://www.w3.org/2000/svg">
+
+        <defs>
+
+          <linearGradient id="pinGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#ff55e6"/>
+            <stop offset="50%" stop-color="#ff22b8"/>
+            <stop offset="100%" stop-color="#984aff"/>
+          </linearGradient>
+
+          <linearGradient id="mapGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#ff46d8"/>
+            <stop offset="100%" stop-color="#8646ff"/>
+          </linearGradient>
+
+        </defs>
+
+        <!-- MAP -->
+
+        <g fill="none"
+           stroke="url(#mapGrad)"
+           stroke-width="4">
+
+          <path d="M25 170L55 145H165L195 170L180 205H40Z"/>
+          <path d="M55 145L70 205"/>
+          <path d="M105 145V205"/>
+          <path d="M155 145L140 205"/>
+          <path d="M35 170H185"/>
+          <path d="M42 188H178"/>
+
+        </g>
+
+        <!-- TARGET -->
+
+        <ellipse
+          cx="110"
+          cy="170"
+          rx="34"
+          ry="12"
+          fill="none"
+          stroke="#ff69e5"
+          stroke-width="4"/>
+
+        <!-- PIN -->
+
+        <path
+          d="M110 15C64 15 42 51 42 87C42 130 110 177 110 177S178 130 178 87C178 51 156 15 110 15Z"
+          fill="rgba(255,30,190,.10)"
+          stroke="url(#pinGrad)"
+          stroke-width="9"/>
+
+        <circle
+          cx="110"
+          cy="82"
+          r="48"
+          fill="#100016"
+          stroke="#ff75e7"
+          stroke-width="3"/>
+
+        <!-- HOUSE -->
+
+        <g fill="none"
+           stroke="#fff"
+           stroke-width="7"
+           stroke-linecap="round"
+           stroke-linejoin="round">
+
+          <path d="M72 82L110 49L148 82"/>
+          <path d="M82 77V118H138V77"/>
+          <path d="M132 56V69"/>
+
+          <rect x="95" y="86" width="12" height="12"/>
+          <rect x="113" y="86" width="12" height="12"/>
+          <rect x="95" y="104" width="12" height="12"/>
+          <rect x="113" y="104" width="12" height="12"/>
+
+        </g>
+
+      </svg>
+
+    </div>
+
+    <h1>Help <span>Her</span> Out</h1>
+
+    <div class="tagline">
+      Woman-owned mobile oil changes at your home or work.
+    </div>
+
+    <div class="ctas">
+
+      <button class="btn primary" onclick="go('book')">
+        BOOK AN OIL CHANGE
+      </button>
+
+      <button class="btn secondary" onclick="go('pricing')">
+        SEE PRICING
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <div class="stats">
+
+    <div class="stat">
+      <b>$50</b>
+      <span>Service only, starting</span>
+    </div>
+
+    <div class="stat">
+      <b>$95</b>
+      <span>Full synthetic, starting</span>
+    </div>
+
+    <div class="stat">
+      <b>30–60</b>
+      <span>Minutes on site</span>
+    </div>
+
+    <div class="stat">
+      <b>6</b>
+      <span>Northland focus towns</span>
+    </div>
+
+  </div>
+
+
+  <div class="card" style="margin-top:18px">
+
+    <h3>🚗 I come to you</h3>
+
+    <p class="desc">
+      Skip the waiting room. I change your oil at your home,
+      workplace or another approved safe location while you
+      get on with your day.
+    </p>
+
+  </div>
+
+
+  <div class="card">
+
+    <h3>💵 Upfront pricing</h3>
+
+    <p class="desc">
+      Every price is confirmed from your year, make, model,
+      engine and oil requirements before I arrive.
+      No surprise repairs and no unnecessary upselling.
+    </p>
+
+  </div>
+
+
+  <div class="card">
+
+    <h3>♻️ Used oil handled</h3>
+
+    <p class="desc">
+      Used motor oil is collected and taken for proper recycling.
+      Tire pressure is checked at every visit.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- PRICING -->
+
+<section id="pricing" class="view">
+
+  <h2 class="page-title">Pricing</h2>
+
+  <p class="subtitle">
+    Pick the option that fits you. Every price is confirmed before your appointment.
+  </p>
+
+  <div id="serviceList"></div>
+
+  <div class="card">
+
+    <h3>Usually a great fit</h3>
+
+    <p class="desc">
+      Most gasoline-powered passenger cars, crossovers, SUVs and light trucks.
+    </p>
+
+    <h3 style="margin-top:14px">Please request a quote first</h3>
+
+    <p class="desc">
+      Diesel vehicles, European or specialty vehicles, more than 5 quarts,
+      extensive skid plates, modified vehicles, damaged drain plugs and
+      known oil leaks.
+    </p>
+
+  </div>
+
+  <p class="note">
+    Vehicle requirements vary. Some vehicles or parking situations may not be
+    suitable for mobile service.
+  </p>
+
+</section>
+
+
+<!-- BOOK -->
+
+<section id="book" class="view">
+
+  <h2 class="page-title">Book an Oil Change</h2>
+
+  <p class="subtitle">
+    Send your request. You won't be charged now. I'll confirm your vehicle,
+    price and appointment time first.
+  </p>
+
+  <div id="bookingSuccess" class="card" hidden>
+
+    <h3>✓ Request received</h3>
+
+    <p class="desc">
+      Thanks! I'll verify your vehicle requirements and appointment
+      availability, then confirm your price and time.
+    </p>
+
+    <button class="btn secondary" onclick="newBooking()" style="margin-top:12px">
+      SEND ANOTHER REQUEST
+    </button>
+
+  </div>
+
+  <form id="bookingForm" class="form-card" novalidate>
+
+    <fieldset class="group">
+      <legend>Your info</legend>
+
+      <div class="field">
+        <label for="name">Name *</label>
+        <input id="name" autocomplete="name" required>
+      </div>
+
+      <div class="two">
+        <div class="field">
+          <label for="phone">Phone *</label>
+          <input id="phone" type="tel" autocomplete="tel" required>
+        </div>
+        <div class="field">
+          <label for="email">Email *</label>
+          <input id="email" type="email" autocomplete="email" required>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset class="group">
+      <legend>Your vehicle</legend>
+
+      <div class="three">
+        <div class="field">
+          <label for="year">Year *</label>
+          <input id="year" inputmode="numeric" maxlength="4" placeholder="2019" required>
+        </div>
+        <div class="field">
+          <label for="make">Make *</label>
+          <input id="make" placeholder="Toyota" required>
+        </div>
+        <div class="field">
+          <label for="model">Model *</label>
+          <input id="model" placeholder="RAV4" required>
+        </div>
+      </div>
+
+      <div class="two">
+        <div class="field">
+          <label for="engine">Engine size (if known)</label>
+          <input id="engine" placeholder="2.5L">
+        </div>
+        <div class="field">
+          <label for="mileage">Current mileage *</label>
+          <input id="mileage" inputmode="numeric" placeholder="48,000" required>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="service">Service requested *</label>
+        <select id="service" required>
+          <option value="">Choose a service…</option>
+          <option value="service-only">$50 Service Only: I supply oil/filter</option>
+          <option value="full-synthetic">$95+ Full Synthetic Mobile Oil Change</option>
+          <option value="specialty-quote">Large/Specialty Vehicle: Request Quote</option>
+        </select>
+      </div>
+    </fieldset>
+
+    <fieldset class="group">
+      <legend>Where &amp; when</legend>
+
+      <div class="field">
+        <label for="address">Service address *</label>
+        <input id="address" autocomplete="street-address" required>
+      </div>
+
+      <div class="two">
+        <div class="field">
+          <label for="city">City *</label>
+          <input id="city" autocomplete="address-level2" required>
+        </div>
+        <div class="field">
+          <label for="zip">ZIP code *</label>
+          <input id="zip" inputmode="numeric" maxlength="10" autocomplete="postal-code" required>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="date">Preferred date *</label>
+        <input id="date" type="date" required>
+      </div>
+
+      <div class="field">
+        <p class="label">Preferred time *</p>
+        <div class="choice-grid">
+          <label class="choice"><input type="radio" name="time" value="Morning" required><span>Morning</span></label>
+          <label class="choice"><input type="radio" name="time" value="Afternoon"><span>Afternoon</span></label>
+          <label class="choice"><input type="radio" name="time" value="Evening"><span>Evening</span></label>
+        </div>
+      </div>
+
+      <div class="field">
+        <p class="label">Location type *</p>
+        <div class="choice-grid four">
+          <label class="choice"><input type="radio" name="location" value="Home" required><span>Home</span></label>
+          <label class="choice"><input type="radio" name="location" value="Work"><span>Work</span></label>
+          <label class="choice"><input type="radio" name="location" value="Apartment"><span>Apartment</span></label>
+          <label class="choice"><input type="radio" name="location" value="Other"><span>Other</span></label>
+        </div>
+      </div>
+    </fieldset>
+
+    <div class="field">
+      <label for="notes">Notes (optional)</label>
+      <textarea id="notes" placeholder="Gate codes, parking details, anything I should know"></textarea>
+    </div>
+
+    <div class="field">
+      <label class="check-confirm">
+        <input id="surface" type="checkbox" required style="width:auto">
+        I confirm the vehicle will be parked on a reasonably level, safe, accessible surface with enough room to perform the service. *
+      </label>
+    </div>
+
+    <p class="error" id="formError" hidden></p>
+
+    <button class="btn primary" type="submit">
+      SEND BOOKING REQUEST
+    </button>
+
+    <p class="note center" style="margin-top:10px">
+      No payment is taken now. * Required field.
+    </p>
+
+  </form>
+
+</section>
+
+
+<!-- SAFETY -->
+
+<section id="safety" class="view">
+
+  <h2 class="page-title">Safety</h2>
+
+  <p class="subtitle">
+    Service conditions that keep you, your car and me safe.
+  </p>
+
+  <div class="card" id="latestBooking" hidden>
+
+    <h3>Your latest request</h3>
+
+    <div class="meta" id="bookingStatus"></div>
+
+    <p class="desc" id="bookingSummary"></p>
+
+  </div>
+
+  <div class="card safety-card">
+
+    <h3>🛞 Level surface</h3>
+
+    <p class="desc">
+      The vehicle needs a reasonably level surface to park on.
+    </p>
+
+  </div>
+
+  <div class="card safety-card">
+
+    <h3>📏 Working space</h3>
+
+    <p class="desc">
+      Enough clearance and room to work around the vehicle.
+    </p>
+
+  </div>
+
+  <div class="card safety-card">
+
+    <h3>🅿️ Permission</h3>
+
+    <p class="desc">
+      You need permission to perform automotive service at the location.
+    </p>
+
+  </div>
+
+  <div class="card safety-card">
+
+    <h3>🚦 No active traffic lane</h3>
+
+    <p class="desc">
+      No active traffic lanes or unsafe roadside locations.
+      I reserve the right to decline or reschedule any location
+      that can't be serviced safely.
+    </p>
+
+  </div>
+
+  <div class="card safety-card">
+
+    <h3>🏠 You can stay inside</h3>
+
+    <p class="desc">
+      Once access to the vehicle is arranged, you don't need to sit
+      outside and watch the whole service.
+    </p>
+
+  </div>
+
+  <div class="card">
+
+    <h3>Vehicle check before I arrive</h3>
+
+    <p class="desc">
+      I confirm your vehicle, the correct oil and filter, and the final
+      price before the appointment. Some vehicles may not be suitable
+      for mobile service.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- PROFILE -->
+
+<section id="profile" class="view">
+
+  <div class="profile-head">
+
+    <div class="avatar">👩</div>
+
+    <h2 style="margin-bottom:3px">Help Her Out</h2>
+
+    <div class="subtitle">
+      Woman-owned mobile oil change
+    </div>
+
+    <div class="level">
+      KANSAS CITY NORTHLAND
+    </div>
+
+  </div>
+
+
+  <div class="card" style="margin-top:14px">
+
+    <h3>Why this exists</h3>
+
+    <p class="desc">
+      Car maintenance shouldn't require sitting in an uncomfortable waiting
+      room or wondering whether you're being sold something you don't need.
+      This service is woman-owned and woman-operated, designed with women in
+      mind, and welcoming to anyone who wants a calm, no-pressure oil change
+      done right where the car is parked.
+    </p>
+
+  </div>
+
+
+  <div class="card">
+
+    <h3>What you can count on</h3>
+
+    <ul class="check-list">
+      <li>Clear pricing</li>
+      <li>No surprise repairs</li>
+      <li>Vehicle verified before appointment</li>
+      <li>Used oil responsibly recycled</li>
+      <li>Mobile convenience</li>
+    </ul>
+
+  </div>
+
+
+  <div class="card">
+
+    <h3>Service area</h3>
+
+    <div class="meta">
+      <span class="badge">North Kansas City</span>
+      <span class="badge">Gladstone</span>
+      <span class="badge">Kansas City North</span>
+      <span class="badge">Liberty</span>
+      <span class="badge">Parkville</span>
+      <span class="badge">Riverside</span>
+    </div>
+
+    <p class="note">
+      Outside the normal area? Send a quote request and I'll let you know
+      if I can make it work.
+    </p>
+
+  </div>
+
+
+  <div class="card">
+
+    <h3>Questions</h3>
+
+    <details class="faq">
+      <summary>Do I need to supply anything?</summary>
+      <p class="desc">For the $50 service-only option, yes: the correct oil and filter. For full-service appointments, I bring them.</p>
+    </details>
+
+    <details class="faq">
+      <summary>How long does an oil change take?</summary>
+      <p class="desc">Most appointments take about 30–60 minutes depending on the vehicle and access.</p>
+    </details>
+
+    <details class="faq">
+      <summary>What happens to the old oil?</summary>
+      <p class="desc">Used motor oil is collected and taken for proper recycling.</p>
+    </details>
+
+    <details class="faq">
+      <summary>Can I stay inside?</summary>
+      <p class="desc">Yes. Once access to the vehicle is arranged, you don't need to sit outside watching the entire service.</p>
+    </details>
+
+  </div>
+
+
+  <div class="card">
+
+    <h3>Saved requests</h3>
+
+    <p class="desc" id="savedCount">No saved requests yet.</p>
+
+    <button class="btn danger" onclick="clearBookings()">
+      CLEAR SAVED REQUESTS
+    </button>
+
+    <p class="note">
+      Requests are saved on this device only. Connect a form service before
+      launch so requests are emailed to you.
+    </p>
+
+  </div>
+
+</section>
+
+</div>
+
+
+<!-- NAV -->
+
+<nav class="nav">
+
+  <div class="nav-inner">
+
+    <button data-view="home" class="active" onclick="go('home')">
+      <strong>⌂</strong>
+      Home
+    </button>
+
+    <button data-view="pricing" onclick="go('pricing')">
+      <strong>💵</strong>
+      Pricing
+    </button>
+
+    <button data-view="book" onclick="go('book')">
+      <strong>＋</strong>
+      Book
+    </button>
+
+    <button data-view="safety" onclick="go('safety')">
+      <strong>🛡</strong>
+      Safety
+    </button>
+
+    <button data-view="profile" onclick="go('profile')">
+      <strong>●</strong>
+      Profile
+    </button>
+
+  </div>
+
+</nav>
+
+
+<div id="toast" class="toast">
+  Saved
+</div>
+
+
+<script>
+
+const BOOKINGS_KEY = "helpHerOutBookingsV1";
+
+const services = [
+
+{
+ key:"service-only",
+ name:"Service Only",
+ price:"$50",
+ note:"You supply the correct oil and filter.",
+ items:["Mobile service","Oil change labor","Basic visual fluid check","Tire pressure check","Used oil removal"]
+},
+
+{
+ key:"full-synthetic",
+ name:"Full Synthetic",
+ price:"Starting at $95",
+ note:"I bring the oil and filter.",
+ popular:true,
+ items:["Up to 5 quarts full synthetic motor oil","Standard oil filter","Mobile service","Oil change labor","Basic fluid check","Tire pressure check","Used oil removal"]
+},
+
+{
+ key:"specialty-quote",
+ name:"Large / Specialty Vehicle",
+ price:"Quote first",
+ note:"Final price is confirmed before the appointment.",
+ items:["Vehicles requiring more than 5 quarts","Diesel vehicles","Specialty filters","Vehicles with extensive skid plates","Unusually difficult access"]
+}
+
+];
+
+const serviceLabels = {
+ "service-only":"$50 Service Only",
+ "full-synthetic":"$95+ Full Synthetic",
+ "specialty-quote":"Large/Specialty Quote"
+};
+
+
+/* ---------- Storage (wrapped: may be blocked in private windows) ---------- */
+
+function loadBookings(){
+  try{
+    return JSON.parse(localStorage.getItem(BOOKINGS_KEY) || "[]");
+  }catch(e){
+    return [];
+  }
+}
+
+function saveBookings(list){
+  try{
+    localStorage.setItem(BOOKINGS_KEY, JSON.stringify(list));
+  }catch(e){}
+}
+
+let bookings = loadBookings();
+
+
+/* ---------- Views ---------- */
+
+function go(name){
+
+  document.querySelectorAll(".view").forEach(v=>v.classList.remove("active"));
+  document.getElementById(name).classList.add("active");
+
+  document.querySelectorAll(".nav button").forEach(b=>{
+    b.classList.toggle("active", b.dataset.view===name);
+  });
+
+  window.scrollTo({top:0,behavior:"smooth"});
+
+  if(name==="safety") renderLatestBooking();
+  if(name==="profile") renderSavedCount();
+}
+
+
+/* ---------- Pricing ---------- */
+
+function renderServices(){
+
+  const list = document.getElementById("serviceList");
+
+  list.innerHTML = services.map(s=>`
+    <div class="card${s.popular ? " featured" : ""}">
+
+      <div class="task-top">
+        <h3>${s.name}</h3>
+        <span class="pay">${s.price}</span>
+      </div>
+
+      <div class="meta">
+        ${s.popular ? '<span class="badge buddy">Most Popular</span>' : ""}
+      </div>
+
+      <p class="desc">${s.note}</p>
+
+      <ul class="check-list">
+        ${s.items.map(i=>`<li>${i}</li>`).join("")}
+      </ul>
+
+      <div class="task-actions">
+        <button class="btn ${s.popular ? "primary" : "secondary"}"
+                onclick="bookService('${s.key}')">
+          ${s.key==="specialty-quote" ? "REQUEST A QUOTE" : "BOOK THIS"}
+        </button>
+      </div>
+
+    </div>
+  `).join("");
+}
+
+function bookService(key){
+  go("book");
+  document.getElementById("service").value = key;
+}
+
+
+/* ---------- Booking ---------- */
+
+function setDefaultDate(){
+  const today = new Date();
+  today.setMinutes(today.getMinutes() - today.getTimezoneOffset());
+  document.getElementById("date").min = today.toISOString().slice(0,10);
+}
+
+function showError(message){
+  const el = document.getElementById("formError");
+  el.textContent = message;
+  el.hidden = false;
+}
+
+document.getElementById("bookingForm").addEventListener("submit", e=>{
+
+  e.preventDefault();
+
+  const form = e.target;
+  const v = id => document.getElementById(id).value.trim();
+  const time = form.querySelector('input[name="time"]:checked');
+  const location = form.querySelector('input[name="location"]:checked');
+
+  if(!v("name") || !v("phone") || !v("email") || !v("year") || !v("make") ||
+     !v("model") || !v("mileage") || !v("service") || !v("address") ||
+     !v("city") || !v("zip") || !v("date") || !time || !location ||
+     !document.getElementById("surface").checked){
+    showError("Please fill in every required field and confirm the parking surface.");
+    return;
+  }
+
+  if(!/^\d{4}$/.test(v("year"))){
+    showError("Enter a four-digit vehicle year.");
+    return;
+  }
+
+  document.getElementById("formError").hidden = true;
+
+  bookings.unshift({
+    id: Date.now(),
+    name: v("name"),
+    phone: v("phone"),
+    email: v("email"),
+    vehicle: `${v("year")} ${v("make")} ${v("model")}`,
+    engine: v("engine"),
+    mileage: v("mileage"),
+    service: serviceLabels[v("service")],
+    address: v("address"),
+    city: v("city"),
+    zip: v("zip"),
+    date: v("date"),
+    time: time.value,
+    location: location.value,
+    notes: v("notes"),
+    status: "Requested"
+  });
+
+  saveBookings(bookings);
+
+  form.hidden = true;
+  document.getElementById("bookingSuccess").hidden = false;
+  window.scrollTo({top:0,behavior:"smooth"});
+  toast("Request saved");
+});
+
+function newBooking(){
+  document.getElementById("bookingForm").reset();
+  document.getElementById("bookingForm").hidden = false;
+  document.getElementById("bookingSuccess").hidden = true;
+  setDefaultDate();
+}
+
+
+/* ---------- Safety: latest request ---------- */
+
+function renderLatestBooking(){
+
+  const card = document.getElementById("latestBooking");
+  const latest = bookings[0];
+
+  card.hidden = !latest;
+  if(!latest) return;
+
+  document.getElementById("bookingStatus").innerHTML =
+    `<span class="badge">${latest.status.toUpperCase()}</span>`;
+
+  document.getElementById("bookingSummary").textContent =
+    `${latest.service} for ${latest.vehicle} on ${latest.date}, ${latest.time.toLowerCase()}, at ${latest.location.toLowerCase()} (${latest.city} ${latest.zip}).`;
+}
+
+
+/* ---------- Profile ---------- */
+
+function renderSavedCount(){
+  const el = document.getElementById("savedCount");
+  el.textContent = bookings.length
+    ? `${bookings.length} saved request${bookings.length===1 ? "" : "s"} on this device.`
+    : "No saved requests yet.";
+}
+
+function clearBookings(){
+  if(!confirm("Clear all saved requests on this device?")) return;
+  bookings = [];
+  saveBookings(bookings);
+  renderSavedCount();
+  renderLatestBooking();
+  toast("Saved requests cleared");
+}
+
+
+/* ---------- Toast ---------- */
+
+let toastTimer;
+
+function toast(message){
+  const el = document.getElementById("toast");
+  el.textContent = message;
+  el.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(()=>el.classList.remove("show"), 1800);
+}
+
+
+renderServices();
+setDefaultDate();
+renderSavedCount();
+
+</script>
+
 </body>
 </html>
